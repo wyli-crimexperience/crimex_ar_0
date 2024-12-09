@@ -1,0 +1,10 @@
+> select an object
+
+> find a surface to spawn the object on
+
+> you may adjust the object's y-elevation
+
+> you may rotate the object around the y-axis
+
+> when aiming your phone close enough towards an interactable, it highlights
+	> you may then tap it to open its UI and manipulate it

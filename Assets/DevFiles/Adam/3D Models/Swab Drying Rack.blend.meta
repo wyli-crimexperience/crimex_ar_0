@@ -3,7 +3,12 @@ guid: 5a2c6205343a6cb45893050d356df7d2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Swab Drying Rack
+    second: {fileID: 2100000, guid: dc48e282565c6ad4f91e3a556c369cf9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

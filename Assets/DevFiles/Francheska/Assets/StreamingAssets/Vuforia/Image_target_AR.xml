@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="bulletcomparisonmarker" size="1.000000 1.000000" />
+    <ImageTarget name="dslrmarker" size="1.000000 1.000000" />
+    <ImageTarget name="magneticbrushmarker" size="1.000000 1.000000" />
+    <ImageTarget name="fingerprintpowdermarker" size="1.000000 1.000000" />
+    <ImageTarget name="lightmicroscopemarker" size="1.000000 1.000000" />
+    <ImageTarget name="policelinemarker" size="1.000000 1.000000" />
+    <ImageTarget name="polygraphmarker" size="1.000000 1.000000" />
+    <ImageTarget name="evidencemarker" size="1.000000 1.000000" />
+    <ImageTarget name="lrulermarker" size="1.000000 1.000000" />
+    <ImageTarget name="kitmarker" size="1.000000 1.000000" />
+    <ImageTarget name="firehatmarker" size="1.000000 1.000000" />
+    <ImageTarget name="fireextinguisherimgmrkr" size="1.000000 1.000000" />
+  </Tracking>
+</QCARConfig>

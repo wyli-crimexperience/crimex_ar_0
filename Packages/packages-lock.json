@@ -201,7 +201,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.learn.iet-framework": {
-      "version": "4.0.2",
+      "version": "4.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -344,7 +344,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.8.7",
+      "version": "1.8.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -373,21 +373,21 @@
       }
     },
     "com.unity.xr.arcore": {
-      "version": "6.0.4",
+      "version": "6.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.xr.core-utils": "2.2.2",
         "com.unity.xr.management": "4.4.0",
-        "com.unity.xr.arfoundation": "6.0.4",
+        "com.unity.xr.arfoundation": "6.0.5",
         "com.unity.modules.androidjni": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "6.0.4",
-      "depth": 0,
+      "version": "6.0.5",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "2.0.0",
@@ -404,13 +404,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arkit": {
-      "version": "6.0.3",
+      "version": "6.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.xr.core-utils": "2.2.2",
         "com.unity.xr.management": "4.4.0",
-        "com.unity.xr.arfoundation": "6.0.3",
+        "com.unity.xr.arfoundation": "6.0.5",
         "com.unity.editorcoroutines": "1.0.0"
       },
       "url": "https://packages.unity.com"

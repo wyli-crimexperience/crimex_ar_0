@@ -16,11 +16,11 @@ public class NavigatorManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(transform.root.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(transform.root.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -60,7 +60,7 @@ public class NavigatorManager : MonoBehaviour
         }
     }
 
-    // Example category-specific methods
+    // Categories
     public void GoToEvidenceCollectionModels()
     {
         LoadScene("EvidenceKitModels");
@@ -87,9 +87,9 @@ public class NavigatorManager : MonoBehaviour
     {
         LoadScene("MicroscopyModels");
     }
-    
-    public void GoToChangeScene()
-    {
-        LoadScene("");
-    }
+
+    //public void GoToCategoryB(string sceneName)
+    //{
+    //    LoadScene(sceneName);
+    //}
 }

@@ -20,7 +20,7 @@ public class EmailPassLogin : MonoBehaviour
     [Header("Notification Settings")]
     public FadeTextScript fadeText;
     public float notificationDuration = 3.0f;
-    public Color errorColor = Color.red;
+    public Color errorColor = Color.red;        //Placeholder colors
     public Color successColor = Color.green;
     public Color warningColor = Color.yellow;
 
@@ -46,13 +46,14 @@ public class EmailPassLogin : MonoBehaviour
         fadeText.StartFade();
     }
 
+    //6 characters long for Firebase conditions
     #region Validation Methods
     private const int MIN_PASSWORD_LENGTH = 6;
-    private const string PASSWORD_ERROR_MESSAGE = "Password must be at least {0} characters long";
+    private const string PASSWORD_ERROR_MESSAGE = "Password must be at least {0} characters long";      
 
     private bool ValidatePassword(string password)
     {
-        return password.Length >= MIN_PASSWORD_LENGTH;
+        return password.Length >= MIN_PASSWORD_LENGTH;      //verifying password length
     }
     #endregion
 
@@ -91,7 +92,7 @@ public class EmailPassLogin : MonoBehaviour
                 FirebaseException firebaseException = task.Exception.GetBaseException() as FirebaseException;
                 AuthError error = (AuthError)firebaseException.ErrorCode;
 
-                switch (error)
+                switch (error)      //Error catching for registering users
                 {
                     case AuthError.WeakPassword:
                         ShowNotification("Password is too weak", NotificationType.Error);
@@ -126,7 +127,7 @@ public class EmailPassLogin : MonoBehaviour
             }
             else
             {
-                ShowNotification("Please verify your email!!", NotificationType.Warning);
+                ShowNotification("A verification email has been sent to activate your account", NotificationType.Warning);
                 SendEmailVerification();
             }
         });
@@ -165,10 +166,6 @@ public class EmailPassLogin : MonoBehaviour
                         ShowNotification("An error occurred: " + sendEmailTask.Exception.Message, NotificationType.Error);
                         break;
                 }
-            }
-            else
-            {
-                ShowNotification("Email verification sent successfully", NotificationType.Success);
             }
         }
     }
@@ -214,7 +211,7 @@ public class EmailPassLogin : MonoBehaviour
             }
             else
             {
-                ShowNotification("Please verify email!", NotificationType.Warning);
+                ShowNotification("Please verify your email!", NotificationType.Warning);
             }
         });
     }

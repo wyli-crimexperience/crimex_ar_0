@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 352067572}
   - component: {fileID: 352067573}
   m_Layer: 5
-  m_Name: modelContainer (6)
+  m_Name: cuttingContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 360677890}
   - component: {fileID: 360677891}
   m_Layer: 5
-  m_Name: modelContainer
+  m_Name: gearContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2016,8 +2016,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fire and safety equipment are tools and systems designed to prevent, detect,
-    and suppress fires, while also protecting people from harm during a fire emergency.
+  m_text: "Basic fire equipment refers to the essential tools and devices used to
+    prevent, manage, and respond to fire emergencies in crime scene investigations.
+    \n\nEnsuring fire safety is crucial during operations, as it may involve hazardous
+    materials, flammable substances, or electrical components that pose a risk of
+    ignition."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
   m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
@@ -3197,7 +3200,7 @@ GameObject:
   - component: {fileID: 1123621423}
   - component: {fileID: 1123621424}
   m_Layer: 5
-  m_Name: modelContainer (2)
+  m_Name: rotationContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3291,7 +3294,7 @@ GameObject:
   - component: {fileID: 1237120989}
   - component: {fileID: 1237120990}
   m_Layer: 5
-  m_Name: modelContainer (4)
+  m_Name: pryingContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3598,7 +3601,7 @@ GameObject:
   - component: {fileID: 1304055778}
   - component: {fileID: 1304055779}
   m_Layer: 5
-  m_Name: modelContainer (5)
+  m_Name: strikingContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3905,7 +3908,7 @@ GameObject:
   - component: {fileID: 1366641983}
   - component: {fileID: 1366641984}
   m_Layer: 5
-  m_Name: modelContainer (3)
+  m_Name: pushpullContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4506,7 +4509,7 @@ GameObject:
   - component: {fileID: 1464620308}
   - component: {fileID: 1464620309}
   m_Layer: 5
-  m_Name: modelContainer (1)
+  m_Name: 'extinguisherContainer '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4941,7 +4944,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

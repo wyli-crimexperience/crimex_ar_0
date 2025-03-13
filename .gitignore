@@ -312,3 +312,6 @@ Assets/Plugins/tvOS/Firebase/libFirebaseCppRemoteConfig.a
 Assets/Plugins/tvOS/Firebase/libFirebaseCppRemoteConfig.a.meta
 Assets/Settings/Build Profiles.meta
 Assets/StreamingAssets.meta
+Packages/com.ptc.vuforia.engine-11.0.4.tgz
+Packages/manifest.json
+Packages/packages-lock.json

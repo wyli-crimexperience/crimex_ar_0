@@ -4,41 +4,48 @@ using UnityEngine;
 
 public class RotateObjectScript : MonoBehaviour
 {
-    public float PCRotationSpeef = 0.10f;
-    public float placeholder = 02.3f;
-
-    public float mobileRotationSpeed = 0.4f;
+    public float rotationSpeed = 0.2f; // Adjusted for smoother rotation
+    public float scaleSpeed = 0.01f; // Added scale speed control
 
     public Camera cam;
 
     private float initialDistance;
     private Vector3 initialScale;
+    private Quaternion initialRotation;
+    private Vector2 lastTouchDelta; // Store last touch delta for smoothing
+
+    private void Start()
+    {
+        initialRotation = transform.rotation;
+        initialScale = transform.localScale;
+    }
 
     private void Update()
     {
-        foreach (Touch touch in Input.touches)
+        // Single touch for rotation
+        if (Input.touchCount == 1)
         {
-            Debug.Log("Touching at" + touch.position);
+            Touch touch = Input.GetTouch(0);
             Ray camRay = cam.ScreenPointToRay(touch.position);
             RaycastHit raycastHit;
+
             if (Physics.Raycast(camRay, out raycastHit, 10))
             {
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Moved)
                 {
-                    Debug.Log("Touch phase began at " + touch.position);
-                }
-                else if (touch.phase == TouchPhase.Moved)
-                {
-                    Debug.Log("Touch phase moved");
-                    transform.Rotate(touch.deltaPosition.y * mobileRotationSpeed, -touch.deltaPosition.x * mobileRotationSpeed, 0, Space.World);
-                }
-                else if (touch.phase == TouchPhase.Ended)
-                {
-                    Debug.Log("Touch phase ended");
+                    // Smooth rotation using Lerp
+                    Vector2 touchDelta = touch.deltaPosition;
+                    lastTouchDelta = Vector2.Lerp(lastTouchDelta, touchDelta, 0.1f); // Smooth out sudden movements
+
+                    float rotationX = lastTouchDelta.y * rotationSpeed * Time.deltaTime * 100f;
+                    float rotationY = -lastTouchDelta.x * rotationSpeed * Time.deltaTime * 100f;
+
+                    transform.Rotate(rotationX, rotationY, 0, Space.World);
                 }
             }
         }
 
+        // Two-finger pinch for scaling
         if (Input.touchCount == 2)
         {
             var touchZero = Input.GetTouch(0);
@@ -54,7 +61,6 @@ public class RotateObjectScript : MonoBehaviour
             {
                 initialDistance = Vector2.Distance(touchZero.position, touchOne.position);
                 initialScale = transform.localScale;
-                Debug.Log("Initial Distance: " + initialDistance);
             }
             else
             {
@@ -66,8 +72,14 @@ public class RotateObjectScript : MonoBehaviour
                 }
 
                 var factor = currentDistance / initialDistance;
-                transform.localScale = initialScale * factor;
+                transform.localScale = Vector3.Lerp(transform.localScale, initialScale * factor, scaleSpeed);
             }
         }
+    }
+
+    public void ResetTransform()
+    {
+        transform.rotation = initialRotation;
+        transform.localScale = initialScale;
     }
 }

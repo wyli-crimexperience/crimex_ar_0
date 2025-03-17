@@ -3,7 +3,12 @@ guid: a6293416657275149b970801c68c6070
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PL_microscope
+    second: {fileID: 2100000, guid: b100c2d8362e641479d1873ad2156e46, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

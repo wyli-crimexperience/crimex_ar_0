@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="polygraph_marker" size="1.000000 1.000000" />
+    <ImageTarget name="policeline_marker" size="1.000000 1.000000" />
+    <ImageTarget name="evidence_marker" size="1.000000 1.000000" />
+    <ImageTarget name="magneticbrush_marker" size="1.000000 1.000000" />
+    <ImageTarget name="fingerprintpowder_marker" size="1.000000 1.000000" />
+    <ImageTarget name="kit_marker" size="1.000000 1.000000" />
+    <ImageTarget name="gear_marker" size="1.000000 1.000000" />
+    <ImageTarget name="roundhead_marker" size="1.000000 1.000000" />
+    <ImageTarget name="finehead_marker" size="1.000000 1.000000" />
+    <ImageTarget name="fiberbrush_marker" size="1.000000 1.000000" />
+    <ImageTarget name="featherbrush_marker" size="1.000000 1.000000" />
+    <ImageTarget name="als_marker" size="1.000000 1.000000" />
     <ImageTarget name="dslr_marker" size="1.000000 1.000000" />
     <ImageTarget name="polarizinlight_marker" size="1.000000 1.000000" />
     <ImageTarget name="bulletcomparison_marker" size="1.000000 1.000000" />

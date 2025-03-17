@@ -1,0 +1,5 @@
+C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

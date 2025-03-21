@@ -8,12 +8,156 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/DevFiles/Francheska/Scenes/LogInPage.unity
     guid: b99eeb1cdfb3275458c98c65b8c22284
-  - enabled: 0
+  - enabled: 1
     path: Assets/DevFiles/Francheska/Scenes/HomePage.unity
     guid: e2d94e3f4bfde4b41a1d4aac193f5b9d
   - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Photograph_category.unity
+    guid: 6d969e046be7b4643b67e99f0973af2c
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Evidence_category.unity
+    guid: e2b5fc795115a20489aedc1bbec7e260
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Microscopes_category.unity
+    guid: 4c0874ad7aefe9b49a2068433671be9c
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Fingerprint_category.unity
+    guid: a53d05b763bd9284c80f15e1602f6104
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Fire_category.unity
+    guid: 2aef4d0efd232b04cba905363f033dfb
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/Categories/Surveillance_category.unity
+    guid: 42382e537ac8573408c9706c4a2e3556
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Evidence/EvidenceKit_info.unity
+    guid: 172bbdd0e6529754ca57678555b24b92
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Evidence/EvidenceMarkers_info.unity
+    guid: 049781abab1994346aa42c471ae9b034
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Microscopy/BCM_info.unity
+    guid: 147551e13c501a344812009b4d466483
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Microscopy/PLM_info.unity
+    guid: 230624b55365a164c80895099949067a
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fingerprint/FeatherBrush_info.unity
+    guid: b67f547efbc25d24298390051a425574
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fingerprint/FibreBrush_info.unity
+    guid: 6b9ac2a55752c1a4bbe0af295302cb33
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fingerprint/FingerprintBrush_info.unity
+    guid: 361ed423eba1ccd4d9149f163660aa0e
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fingerprint/MagneticBrush_info.unity
+    guid: b6670670acd5998469daddfa0859e67a
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fingerprint/Powder_info.unity
+    guid: c9dec26d67dc188419d1685239ffa9b8
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/CuttingTools_info.unity
+    guid: e544258ae9f7ab94982ddd04225a5fb9
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/FireExtinguisher_info.unity
+    guid: 8b76644e612b2024a99457cfb4053a2c
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/Gear_info.unity
+    guid: 1b6c5fdeda9121a478ecbbcd742845a2
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/PryingTools_info.unity
+    guid: be744b87c2180c64ab24a422478a64e9
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/PushPullTools_info.unity
+    guid: 653490b6dca64264aa297970d30de068
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/RotationTools_info.unity
+    guid: d464dcf85710eed4aaf1291eb26aac1b
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Fire/StrikingTools_info.unity
+    guid: 2ffebd19957e7d74b92f8acd54830e95
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Photography/ALS_info.unity
+    guid: c97b724c891694041ae050bada03e253
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Photography/DSLR_info.unity
+    guid: 6c0beda5fe1f50748804735ab798e3a3
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Surveillance/PoliceLine_info.unity
+    guid: 90b147e3204534048866f4cf0c8ceef4
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/InfoPages/Surveillance/Polygraph_info.unity
+    guid: 7f3fde4c692f73c48b38596260ee4e07
+  - enabled: 1
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/MicroscopeAR/BCM_AR.unity
     guid: f554f4ab7235ccd4b81713cbf0c4f3e0
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/MicroscopeAR/PLM_AR.unity
+    guid: 4b2fa4c4b7e854e4b80efb35cb8cbf69
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/Photography_AR/ALS_AR.unity
+    guid: b840334418c767c45a63f12bbf126260
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/Photography_AR/DSLR_AR.unity
+    guid: 7a32cb36f4b725e4bbecaefec3515e8f
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/Surveillance_AR/policeline_AR.unity
+    guid: e7c8e532e22174c44b37871c634fd019
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/Surveillance_AR/polygraph_AR.unity
+    guid: c03177d382c57534194c8394b8b1b3ea
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/collection_AR.unity
+    guid: bc2073da62851734aa633a78eededa5f
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/evidencemarkers_AR.unity
+    guid: 934c134cc5061d24f80731d63e216d05
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/measurement_AR.unity
+    guid: 70582d869c1fc1b458736dcb64d5106d
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/packaging_AR.unity
+    guid: b039f6fa39450524896e194d17bc0db4
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/visualization_AR.unity
+    guid: a03d4f0a3a233034c825590991cc958e
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FingerprintAR/featherbrush_AR.unity
+    guid: 7d76cea4c9406184e83e6835f8f3e5ae
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FingerprintAR/fiberbrush_AR.unity
+    guid: 4ab1861f2571e01419756aeb7461de4e
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FingerprintAR/fingerprintbrushes_AR.unity
+    guid: 9ca8429217916714da87679c889b7baf
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FingerprintAR/magneticbrush_AR.unity
+    guid: 39cd844fc80c4a44f9415db95e7b1ec1
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FingerprintAR/powders_AR.unity
+    guid: e8358a4f28a7f2546b6752e35eef946a
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/cuttingtools_AR.unity
+    guid: 16d3211d300482d48823866886d4bb80
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/extinguishers_AR.unity
+    guid: 1974c79f3090da940968f02a767cb83c
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/gear_AR.unity
+    guid: 25ff08985592af5459b72e71fa7c2693
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/pryingtools_AR.unity
+    guid: 6e4cd30efdda1384692a208e7d1006f7
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/pushpulltools_AR.unity
+    guid: a9980a7ae779e4241ae2c02ce3abe720
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/rotationtools_AR.unity
+    guid: 5f6098c263c87f8418dee2274e7bcc9f
+  - enabled: 1
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/strikingtools_AR.unity
+    guid: 5d807244d82071742bc7d7656b4ca690
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

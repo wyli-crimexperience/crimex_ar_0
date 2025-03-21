@@ -61,35 +61,32 @@ public class NavigatorManager : MonoBehaviour
     }
 
     // Categories
-    public void GoToEvidenceCollectionModels()
+    public void GoToEvidenceKitCategory()
     {
-        LoadScene("EvidenceKitModels");
+        LoadScene("Evidence_category");
     }
 
-    public void GoToSurveillanceModels()
+    public void GoToSurveillanceCategory()
     {
-        LoadScene("SurveillanceModels");
+        LoadScene("Surveillance_category");
     }
 
-    public void GoToFireEquipmentModels()
+    public void GoToFireEquipmentCategory()
     {
-        LoadScene("FireEquipmentModels");
+        LoadScene("Fire_category");
     }
-    public void GoToFingerprintModels()
+    public void GoToFingerprintCategory()
     {
-        LoadScene("FingerprintModels");
+        LoadScene("Fingerprint_category");
     }
-    public void GoToPhotographyModels()
+    public void GoToPhotographyCategory()
     {
-        LoadScene("PhotographyModels");
+        LoadScene("Photograph_category");
     }
-    public void GoToMicroscopyModels()
+    public void GoToMicroscopyCategory()
     {
-        LoadScene("MicroscopyModels");
+        LoadScene("Microscopes_category");
     }
+ 
 
-    //public void GoToCategoryB(string sceneName)
-    //{
-    //    LoadScene(sceneName);
-    //}
 }

@@ -3710,6 +3710,7 @@ GameObject:
   - component: {fileID: 1431714090}
   - component: {fileID: 1431714089}
   - component: {fileID: 1431714088}
+  - component: {fileID: 1431714092}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3800,6 +3801,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1431714092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431714087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf13f1f2007b994eb93e3d41fda00e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1464748443
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +4430,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00018310547}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 7861.8496}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1694807991
 MonoBehaviour:
@@ -4458,7 +4471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &1720094223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,7 +4650,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1726098574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1431714092}
+        m_TargetAssemblyTypeName: FireNavigator, Assembly-CSharp
+        m_MethodName: GoToStrikingToolsAR
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1726098574
 MonoBehaviour:
   m_ObjectHideFlags: 0

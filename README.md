@@ -1,6 +1,3 @@
-Here's a simple `README.md` file for a GitHub repository that contains a Unity project. It assumes the reader is familiar with Git and Unity basics:
-
-```markdown
 # Unity Project
 
 This repository contains a Unity project. You can clone, open, and run it using the Unity Editor.

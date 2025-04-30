@@ -108,7 +108,7 @@ EditorBuildSettings:
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/Surveillance_AR/polygraph_AR.unity
     guid: c03177d382c57534194c8394b8b1b3ea
   - enabled: 1
-    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/collection_AR.unity
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/packaging_AR.unity
     guid: bc2073da62851734aa633a78eededa5f
   - enabled: 1
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/evidencemarkers_AR.unity
@@ -117,7 +117,7 @@ EditorBuildSettings:
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/measurement_AR.unity
     guid: 70582d869c1fc1b458736dcb64d5106d
   - enabled: 1
-    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/packaging_AR.unity
+    path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/collection_AR.unity
     guid: b039f6fa39450524896e194d17bc0db4
   - enabled: 1
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/EvidenceAR/visualization_AR.unity

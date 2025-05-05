@@ -1465,7 +1465,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c89b2242be9f4f84289ce0456169364b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89b2242be9f4f84289ce0456169364b,
         type: 3}
@@ -2331,7 +2331,7 @@ GameObject:
   - component: {fileID: 933212639}
   - component: {fileID: 933212638}
   - component: {fileID: 933212637}
-  - component: {fileID: 933212636}
+  - component: {fileID: 933212640}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -2339,25 +2339,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &933212636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933212635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 933212638}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: dslr_marker
-  mDatasetName: Vuforia/Image_targets.xml
-  mCastedBehaviour: {fileID: 933212638}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &933212637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,9 +2398,9 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: dslr_marker
+  mTrackableName: camera
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Image_targets.xml
+  mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 1
@@ -2428,7 +2409,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 933212636}
+  mPreview: {fileID: 933212640}
 --- !u!4 &933212639
 Transform:
   m_ObjectHideFlags: 0
@@ -2445,6 +2426,25 @@ Transform:
   - {fileID: 615905191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933212640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933212635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 933212638}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: camera
+  mDatasetName: Vuforia/crimeXperienceAR.xml
+  mCastedBehaviour: {fileID: 933212638}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!114 &1055982552
 MonoBehaviour:
   m_ObjectHideFlags: 0

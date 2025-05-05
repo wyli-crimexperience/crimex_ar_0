@@ -1155,8 +1155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 933212638}
   mHiddenRoot: {fileID: 0}
-  mTargetName: bulletcomparison_marker
-  mDatasetName: Vuforia/Image_targets.xml
+  mTargetName: bcm
+  mDatasetName: Vuforia/crimeXperienceAR.xml
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -1219,13 +1219,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: bulletcomparison_marker
+  mTrackableName: bcm
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Image_targets.xml
+  mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 1
-  mHeight: 1
+  mWidth: 2
+  mHeight: 2
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0

@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.merry-yellow.code-assist": {
+      "version": "file:com.merry-yellow.code-assist",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.ptc.vuforia.engine": {
       "version": "file:com.ptc.vuforia.engine-11.1.3.tgz",
       "depth": 0,

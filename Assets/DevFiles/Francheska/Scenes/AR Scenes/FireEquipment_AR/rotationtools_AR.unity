@@ -1344,8 +1344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 933212638}
   mHiddenRoot: {fileID: 0}
-  mTargetName: fireextinguisher_marker
-  mDatasetName: Vuforia/Image_targets.xml
+  mTargetName: rotation_tools
+  mDatasetName: Vuforia/crimeXperienceAR.xml
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -1408,9 +1408,9 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: fireextinguisher_marker
+  mTrackableName: rotation_tools
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Image_targets.xml
+  mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 1

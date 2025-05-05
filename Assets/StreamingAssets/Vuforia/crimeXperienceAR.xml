@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="pushpull_tools" size="1.000000 1.000000" />
+    <ImageTarget name="striking_tools" size="1.000000 1.000000" />
+    <ImageTarget name="rotation_tools" size="1.000000 1.000000" />
+    <ImageTarget name="cutting_tools" size="1.000000 1.000000" />
+    <ImageTarget name="prying_tools" size="1.000000 1.000000" />
+    <ImageTarget name="camera" size="1.000000 1.000000" />
+    <ImageTarget name="volcano_print_finger" size="1.000000 1.000000" />
+    <ImageTarget name="uv_light" size="1.000000 1.000000" />
+    <ImageTarget name="polygraph" size="1.000000 1.000000" />
+    <ImageTarget name="police_line" size="1.000000 1.000000" />
+    <ImageTarget name="microscope" size="1.000000 1.000000" />
+    <ImageTarget name="measurement" size="1.000000 1.000000" />
+    <ImageTarget name="magnetic_brush" size="1.000000 1.000000" />
+    <ImageTarget name="fire_safety" size="1.000000 1.000000" />
+    <ImageTarget name="fingerbrush" size="1.000000 1.000000" />
+    <ImageTarget name="fiberbrush" size="1.000000 1.000000" />
+    <ImageTarget name="featherbrush" size="1.000000 1.000000" />
+    <ImageTarget name="extinguisher" size="1.000000 1.000000" />
+    <ImageTarget name="evidence_kit" size="2.000000 2.000000" />
+    <ImageTarget name="bcm" size="2.000000 2.000000" />
+  </Tracking>
+</QCARConfig>

@@ -6,5 +6,13 @@
 
 > you may rotate the object around the y-axis
 
-> when aiming your phone close enough towards an interactable, it highlights
+> when aiming your phone close enough towards an interactable component, it highlights
 	> you may then tap it to open its UI and manipulate it
+
+> when interacting with a viewfinder component, a UI panel shows up on screen that displays what you can see close up
+
+================================
+LINKS
+
+Storyboard:
+https://www.canva.com/design/DAGThm-iPtU/T2AoQ7zTWQPlmffyescJ_w/edit

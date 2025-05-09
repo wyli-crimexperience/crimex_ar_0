@@ -7,11 +7,12 @@
       "dependencies": {}
     },
     "com.ptc.vuforia.engine": {
-      "version": "file:com.ptc.vuforia.engine-11.1.3.tgz",
+      "version": "file:com.ptc.vuforia.engine-11.2.4.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
+        "com.unity.inputsystem": "1.11.2",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       }
     },

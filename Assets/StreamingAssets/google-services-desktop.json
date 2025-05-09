@@ -1,37 +1,26 @@
 {
   "project_info": {
-    "project_number": "161104433704",
-    "firebase_url": "https://crimex-stage-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "crimex-stage",
-    "storage_bucket": "crimex-stage.firebasestorage.app"
+    "project_number": "838280539991",
+    "project_id": "crimex-59ac0",
+    "storage_bucket": "crimex-59ac0.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:161104433704:android:4aa6852b911aa49850db1d",
+        "mobilesdk_app_id": "1:838280539991:android:e44f0486880ee9db355812",
         "android_client_info": {
-          "package_name": "com.unity.crimex.ar_mobile"
+          "package_name": "com.CrimeXperience.CrimeXAR"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "161104433704-phihfquhufpoghue48p7t0d659n169g7.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyClPC62LYiCTaQeInUXCp_OAOjjw6pyiUE"
+          "current_key": "AIzaSyA5F8X6K5qjAaMS2qxNjOW1QI7MhV7aziM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "161104433704-phihfquhufpoghue48p7t0d659n169g7.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

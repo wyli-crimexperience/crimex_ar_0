@@ -45,6 +45,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/armeabi-v7a/GameActivity/cmake_install.cmake")
+  include("C:/Users/USER 1/Documents/GitHub/crimex_ar_0/.utmp/RelWithDebInfo/5p3k1um5/armeabi-v7a/FramePacing/cmake_install.cmake")
 
 endif()
 

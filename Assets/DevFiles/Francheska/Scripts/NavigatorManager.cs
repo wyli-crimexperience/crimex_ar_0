@@ -87,6 +87,13 @@ public class NavigatorManager : MonoBehaviour
     {
         LoadScene("Microscopes_category");
     }
- 
+    public void GoToLoginScreen()
+    {
+        LoadScene("LogInPage");
+    }
+    public void GoToMainMenu()
+    {
+        LoadScene("HomePage");
+    }
 
 }

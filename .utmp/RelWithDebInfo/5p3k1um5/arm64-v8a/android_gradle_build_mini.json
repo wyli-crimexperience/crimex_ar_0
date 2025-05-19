@@ -1,6 +1,7 @@
 {
   "buildFiles": [
     "C:\\Users\\USER 1\\Documents\\GitHub\\crimex_ar_0\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\USER 1\\Documents\\GitHub\\crimex_ar_0\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\CMakeLists.txt",
     "C:\\Users\\USER 1\\Documents\\GitHub\\crimex_ar_0\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\GameActivity\\CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
@@ -22,6 +23,12 @@
       "artifactName": "game",
       "abi": "arm64-v8a",
       "output": "C:\\Users\\USER 1\\Documents\\GitHub\\crimex_ar_0\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\5p3k1um5\\obj\\arm64-v8a\\libgame.so",
+      "runtimeFiles": []
+    },
+    "swappywrapper::@7e25bd1f32ce224db4e9": {
+      "artifactName": "swappywrapper",
+      "abi": "arm64-v8a",
+      "output": "C:\\Users\\USER 1\\Documents\\GitHub\\crimex_ar_0\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\5p3k1um5\\obj\\arm64-v8a\\libswappywrapper.so",
       "runtimeFiles": []
     }
   }

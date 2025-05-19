@@ -1,9 +1,9 @@
-
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Firebase.Extensions;
 using Firebase.Auth;
+using Firebase.Firestore;
 using Firebase;
 
 public class EmailPassLogin : MonoBehaviour
@@ -31,12 +31,7 @@ public class EmailPassLogin : MonoBehaviour
     private const int MIN_PASSWORD_LENGTH = 6;
     private const string PASSWORD_ERROR_MESSAGE = "Password must be at least {0} characters long";
 
-    private enum NotificationType
-    {
-        Error,
-        Success,
-        Warning
-    }
+    private enum NotificationType { Error, Success, Warning }
 
     private void ShowNotification(string message, NotificationType type)
     {
@@ -48,14 +43,10 @@ public class EmailPassLogin : MonoBehaviour
             NotificationType.Warning => warningColor,
             _ => Color.white
         };
-
         fadeText.StartFade();
     }
 
-    private bool ValidatePassword(string password)
-    {
-        return password.Length >= MIN_PASSWORD_LENGTH;
-    }
+    private bool ValidatePassword(string password) => password.Length >= MIN_PASSWORD_LENGTH;
 
     public async void SignUp()
     {
@@ -88,6 +79,21 @@ public class EmailPassLogin : MonoBehaviour
                 ShowNotification("A verification email has been sent to activate your account", NotificationType.Warning);
                 await result.User.SendEmailVerificationAsync();
             }
+
+            // Firestore user profile creation
+            FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+            DocumentReference docRef = db.Collection("users").Document(result.User.UserId);
+
+            Dictionary<string, object> userData = new Dictionary<string, object>
+            {
+                { "displayName", result.User.DisplayName ?? "Guest" },
+                { "email", result.User.Email },
+                { "userType", "Registered" },
+                { "profileImageUrl", result.User.PhotoUrl?.ToString() ?? "" },
+                { "createdAt", Timestamp.GetCurrentTimestamp() }
+            };
+
+            await docRef.SetAsync(userData, SetOptions.MergeAll);
         }
         catch (FirebaseException ex)
         {
@@ -100,16 +106,13 @@ public class EmailPassLogin : MonoBehaviour
         }
     }
 
-    private string GetErrorMessage(AuthError error)
+    private string GetErrorMessage(AuthError error) => error switch
     {
-        return error switch
-        {
-            AuthError.WeakPassword => "Password is too weak",
-            AuthError.InvalidEmail => "Invalid email address",
-            AuthError.EmailAlreadyInUse => "This email is already in use",
-            _ => "Wrong pass code or an unknown error occurred"
-        };
-    }
+        AuthError.WeakPassword => "Password is too weak",
+        AuthError.InvalidEmail => "Invalid email address",
+        AuthError.EmailAlreadyInUse => "This email is already in use",
+        _ => "Wrong pass code or an unknown error occurred"
+    };
 
     public async void Login()
     {
@@ -126,6 +129,20 @@ public class EmailPassLogin : MonoBehaviour
                 SuccessUi.SetActive(true);
                 successDescriptionText.text = "Id: " + result.User.UserId;
 
+                // Firestore user profile update
+                FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+                DocumentReference docRef = db.Collection("Students").Document(result.User.UserId);
+
+                Dictionary<string, object> userData = new Dictionary<string, object>
+                {
+                    { "displayName", result.User.DisplayName ?? "Guest" },
+                    { "email", result.User.Email },
+                    { "userType", "Registered" },
+                    { "profileImageUrl", result.User.PhotoUrl?.ToString() ?? "" },
+                    { "lastLogin", Timestamp.GetCurrentTimestamp() }
+                };
+
+                await docRef.SetAsync(userData, SetOptions.MergeAll);
             }
             else
             {

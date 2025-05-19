@@ -1,23 +1,12 @@
 # ninja log v5
-27	990	7691471562193384	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ddae8ff3459849b8
-10	1105	7691471563339993	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	819164e63eeeb2f0
-17	1012	7691471562441119	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	268a27a2f6fe78d4
-43	1099	7691471563282651	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a63ed09e213f0389
-1378	1481	7691471567170628	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libgame.so	9c602491e08fab52
-32	1033	7691471562653842	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2b87a12ede4011fc
-5	1158	7691471563880683	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	8435793f2f13e529
-37	1279	7691471565099400	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	26b6c42fd51209c8
-49	285	7691471555195180	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2c94086ba959648f
-22	1378	7691471566054619	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2e590dbb5762e934
-286	485	7691471557209298	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libswappywrapper.so	c24ff1ac7c55bd30
-60	299	7691485065000933	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2c94086ba959648f
-299	474	7691485066760755	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libswappywrapper.so	c24ff1ac7c55bd30
-47	789	7691485069845067	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ddae8ff3459849b8
-18	789	7691485069890233	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	268a27a2f6fe78d4
-36	811	7691485070087745	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2b87a12ede4011fc
-53	849	7691485070485293	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a63ed09e213f0389
-30	866	7691485070671349	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	819164e63eeeb2f0
-25	895	7691485070958661	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	8435793f2f13e529
-42	990	7691485071906700	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	26b6c42fd51209c8
-10	1084	7691485072816946	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2e590dbb5762e934
-1085	1171	7691485073743056	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libgame.so	9c602491e08fab52
+45	324	7693368051727553	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2c94086ba959648f
+326	468	7693368053186011	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libswappywrapper.so	c24ff1ac7c55bd30
+26	803	7693368056461434	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ddae8ff3459849b8
+15	815	7693368056598111	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	819164e63eeeb2f0
+11	824	7693368056703838	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	268a27a2f6fe78d4
+32	838	7693368056851963	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2b87a12ede4011fc
+38	890	7693368057360404	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a63ed09e213f0389
+6	927	7693368057725985	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	8435793f2f13e529
+21	1071	7693368059205484	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	26b6c42fd51209c8
+1	1174	7693368060190177	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2e590dbb5762e934
+1174	1268	7693368061191704	C:/Users/USER 1/Documents/GitHub/crimex_ar_0/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5p3k1um5/obj/arm64-v8a/libgame.so	9c602491e08fab52

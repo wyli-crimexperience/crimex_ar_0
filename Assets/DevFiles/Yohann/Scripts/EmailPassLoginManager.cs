@@ -5,6 +5,7 @@ using Firebase.Extensions;
 using Firebase.Auth;
 using Firebase.Firestore;
 using Firebase;
+using UnityEngine.SceneManagement;
 
 public class EmailPassLogin : MonoBehaviour
 {
@@ -14,9 +15,17 @@ public class EmailPassLogin : MonoBehaviour
     public TMP_InputField SignupEmail;
     public TMP_InputField SignupPassword;
     public TMP_InputField SignupPasswordConfirm;
+
+    public TMP_InputField SignupFirstName;
+    public TMP_InputField SignupLastName;
+    public TMP_Dropdown userTypeDropdown;
+    public TMP_InputField classCodeInput;
+
     public GameObject loadingScreen;
+    public GameObject loginUi;
+    public GameObject signupUi;
+    public GameObject SuccessUi;
     public TextMeshProUGUI logTxt;
-    public GameObject loginUi, signupUi, SuccessUi;
 
     [Header("Notification Settings")]
     public FadeTextScript fadeText;
@@ -27,6 +36,9 @@ public class EmailPassLogin : MonoBehaviour
 
     [Header("Success Description")]
     public TextMeshProUGUI successDescriptionText;
+
+    [Header("Scene Names")]
+    public string mainMenuSceneName = "MainMenuScene";
 
     private const int MIN_PASSWORD_LENGTH = 6;
     private const string PASSWORD_ERROR_MESSAGE = "Password must be at least {0} characters long";
@@ -48,6 +60,35 @@ public class EmailPassLogin : MonoBehaviour
 
     private bool ValidatePassword(string password) => password.Length >= MIN_PASSWORD_LENGTH;
 
+    private void Start()
+    {
+        if (fadeText == null)
+        {
+            fadeText = GetComponent<FadeTextScript>();
+        }
+        loadingScreen.SetActive(true);
+        loginUi.SetActive(false);
+        signupUi.SetActive(false);
+        SuccessUi.SetActive(false);
+        CheckUserLoggedIn();
+    }
+
+    private void CheckUserLoggedIn()
+    {
+        var user = FirebaseAuth.DefaultInstance.CurrentUser;
+        if (user != null && user.IsEmailVerified)
+        {
+            Debug.Log("User logged in and verified. Loading MainMenu...");
+            SceneManager.LoadScene(mainMenuSceneName);
+        }
+        else
+        {
+            Debug.Log("No user logged in or email not verified. Showing login UI...");
+            loadingScreen.SetActive(false);
+            loginUi.SetActive(true);
+        }
+    }
+
     public async void SignUp()
     {
         if (!ValidatePassword(SignupPassword.text))
@@ -63,12 +104,20 @@ public class EmailPassLogin : MonoBehaviour
         }
 
         loadingScreen.SetActive(true);
+
         try
         {
             var auth = FirebaseAuth.DefaultInstance;
             var result = await auth.CreateUserWithEmailAndPasswordAsync(SignupEmail.text.Trim(), SignupPassword.text.Trim());
 
+            string fullName = $"{SignupFirstName.text.Trim()} {SignupLastName.text.Trim()}".Trim();
+
+            // Update Firebase Auth user profile
+            await result.User.UpdateUserProfileAsync(new UserProfile { DisplayName = fullName });
+
+            // Clear input fields
             SignupEmail.text = SignupPassword.text = SignupPasswordConfirm.text = "";
+            SignupFirstName.text = SignupLastName.text = "";
 
             if (result.User.IsEmailVerified)
             {
@@ -80,15 +129,17 @@ public class EmailPassLogin : MonoBehaviour
                 await result.User.SendEmailVerificationAsync();
             }
 
-            // Firestore user profile creation
+            string[] userTypes = { "Student", "Teacher", "Faculty Staff" };
+            string selectedUserType = userTypes[Mathf.Clamp(userTypeDropdown.value, 0, userTypes.Length - 1)];
+
             FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-            DocumentReference docRef = db.Collection("users").Document(result.User.UserId);
+            DocumentReference docRef = db.Collection("Students").Document(result.User.UserId);
 
             Dictionary<string, object> userData = new Dictionary<string, object>
             {
-                { "displayName", result.User.DisplayName ?? "Guest" },
+                { "displayName", string.IsNullOrWhiteSpace(fullName) ? "Guest" : fullName },
                 { "email", result.User.Email },
-                { "userType", "Registered" },
+                { "userType", selectedUserType },
                 { "profileImageUrl", result.User.PhotoUrl?.ToString() ?? "" },
                 { "createdAt", Timestamp.GetCurrentTimestamp() }
             };
@@ -124,47 +175,44 @@ public class EmailPassLogin : MonoBehaviour
 
             if (result.User.IsEmailVerified)
             {
+                // Validate class code
+                string enteredClassCode = classCodeInput.text.Trim();
+                FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+                DocumentReference classDocRef = db.Collection("Classes").Document(enteredClassCode);
+                DocumentSnapshot classSnapshot = await classDocRef.GetSnapshotAsync();
+
+                if (!classSnapshot.Exists)
+                {
+                    ShowNotification("Invalid class code. Please try again.", NotificationType.Error);
+                    loadingScreen.SetActive(false);
+                    return;
+                }
+
                 ShowNotification("Log in Successful", NotificationType.Success);
                 loginUi.SetActive(false);
                 SuccessUi.SetActive(true);
                 successDescriptionText.text = "Id: " + result.User.UserId;
 
-                // Firestore user profile update
-                FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-                DocumentReference docRef = db.Collection("Students").Document(result.User.UserId);
+                // Optionally: Save class code to user's Firestore document
+                DocumentReference userDocRef = db.Collection("Students").Document(result.User.UserId);
+                await userDocRef.SetAsync(new Dictionary<string, object>
+            {
+                { "classCode", enteredClassCode }
+            }, SetOptions.MergeAll);
 
-                Dictionary<string, object> userData = new Dictionary<string, object>
-                {
-                    { "displayName", result.User.DisplayName ?? "Guest" },
-                    { "email", result.User.Email },
-                    { "userType", "Registered" },
-                    { "profileImageUrl", result.User.PhotoUrl?.ToString() ?? "" },
-                    { "lastLogin", Timestamp.GetCurrentTimestamp() }
-                };
-
-                await docRef.SetAsync(userData, SetOptions.MergeAll);
+                SceneManager.LoadScene(mainMenuSceneName);
             }
             else
             {
                 ShowNotification("Please verify your email!", NotificationType.Warning);
+                loadingScreen.SetActive(false);
             }
         }
         catch (FirebaseException ex)
         {
             var error = (AuthError)ex.ErrorCode;
             ShowNotification(GetErrorMessage(error), NotificationType.Error);
-        }
-        finally
-        {
             loadingScreen.SetActive(false);
-        }
-    }
-
-    private void Start()
-    {
-        if (fadeText == null)
-        {
-            fadeText = GetComponent<FadeTextScript>();
         }
     }
 }

@@ -1,37 +1,88 @@
-
 using UnityEngine;
 using Firebase.Auth;
+using UnityEngine.SceneManagement;
+using TMPro;
+using System;
+using System.Collections;
 
 public class LogoutManager : MonoBehaviour
 {
-    public GameObject logoutButton; // Assign the logout button GameObject in the Inspector
+    [Header("UI References")]
+    public GameObject logoutButton; // Optional: Assign in Inspector
+    public TextMeshProUGUI logoutText;
+
+    [Header("Scene Navigation")]
+    public string loginSceneName = "LogInPage"; // Editable in Inspector
+
+    private FirebaseAuth auth;
+
+    private void Awake()
+    {
+        auth = FirebaseAuth.DefaultInstance;
+    }
 
     private void Start()
     {
-        // Check the user's authentication state at the start
-        UpdateLogoutButtonState();
+        StartCoroutine(InitializeLogoutManager());
     }
 
-    private void UpdateLogoutButtonState()
+    private IEnumerator InitializeLogoutManager()
     {
-        var user = FirebaseAuth.DefaultInstance.CurrentUser;
-        if (user != null && user.IsEmailVerified)
+        // Wait until Firebase Auth is ready
+        while (auth.CurrentUser == null)
         {
-            logoutButton.SetActive(true);
+            yield return null;
         }
-        else
+
+        Debug.Log($"[LogoutManager] Firebase Auth initialized. Current user: {auth.CurrentUser.Email}");
+
+        UpdateLogoutUI();
+        auth.StateChanged += OnAuthStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        if (auth != null)
+            auth.StateChanged -= OnAuthStateChanged;
+    }
+
+    private void OnAuthStateChanged(object sender, EventArgs e)
+    {
+        Debug.Log("[LogoutManager] Auth state changed.");
+        UpdateLogoutUI();
+    }
+    private void UpdateLogoutUI()
+    {
+        var user = auth.CurrentUser;
+        bool showButton = user != null && user.IsEmailVerified;
+
+        if (logoutButton != null)
+            logoutButton.SetActive(showButton);
+
+        if (logoutText != null)
         {
-            logoutButton.SetActive(false);
+            // Force-set the color using full RGBA to avoid alpha issues
+            logoutText.color = showButton ? new Color32(255, 255, 255, 255) : new Color32(128, 128, 128, 255); // white if logged in, gray otherwise
+
+            // Optional: Change the text itself for clarity
+            logoutText.text = showButton ? "Logout" : "";
+
+            logoutText.ForceMeshUpdate();
+            Debug.Log($"[LogoutManager] Logout text color set to: {logoutText.color}");
         }
     }
+
 
     public void Logout()
     {
-        FirebaseAuth.DefaultInstance.SignOut();
+        if (auth.CurrentUser != null)
+            Debug.Log($"[LogoutManager] Logging out user: {auth.CurrentUser.Email}");
+
+        auth.SignOut();
         PlayerPrefs.SetInt("AutoLogin", 0);
         PlayerPrefs.Save();
 
-        // Update the logout button state after logging out
-        UpdateLogoutButtonState();
+        Debug.Log("[LogoutManager] User signed out. Redirecting to login scene...");
+        SceneManager.LoadScene(loginSceneName);
     }
 }

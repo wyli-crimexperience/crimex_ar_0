@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class DescriptionManager : MonoBehaviour
     [SerializeField] private string modelTitle = "Model Part";
     [SerializeField] private string modelDescription = "Description of the model part";
 
-    void Start()
+    private void Start()
     {
         if (!titleText || !descriptionText || !hudPanel)
         {
@@ -23,45 +24,46 @@ public class DescriptionManager : MonoBehaviour
         }
 
         hudPanel.SetActive(false);
-
-        if (TouchHandler.Instance)
-            TouchHandler.Instance.onTouch.AddListener(HandleTouch);
-        else
-            Debug.LogError("TouchHandler is missing!");
-
         closeButton?.onClick.AddListener(() => hudPanel.SetActive(false));
     }
 
-    void HandleTouch(Touch touch)
+    private void Update()
     {
-        if (touch.phase != TouchPhase.Began) return;
+        if (InteractionState.CurrentMode != InteractionMode.Description) return;
 
-        Ray ray = Camera.main.ScreenPointToRay(touch.position);
-        float raycastRadius = 0.05f; // Adjust this for easier tapping
+        if (Touchscreen.current == null || Touchscreen.current.primaryTouch == null)
+            return;
+
+        var touch = Touchscreen.current.primaryTouch;
+
+        if (touch.press.wasPressedThisFrame)
+        {
+            Vector2 touchPos = touch.position.ReadValue();
+            HandleTouch(touchPos);
+        }
+    }
+
+    private void HandleTouch(Vector2 screenPosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        float raycastRadius = 0.05f;
 
         if (Physics.SphereCast(ray, raycastRadius, out RaycastHit hit, Mathf.Infinity))
         {
             Debug.Log("SphereCast hit: " + hit.collider.gameObject.name);
 
-            if (hit.collider.gameObject == gameObject) // Check if this is the right model part
+            if (hit.collider.gameObject == gameObject)
             {
                 ShowDescription();
             }
         }
     }
 
-
-
-    void ShowDescription()
+    private void ShowDescription()
     {
         titleText.text = modelTitle;
         descriptionText.text = modelDescription;
         hudPanel.SetActive(true);
-    }
-
-    void OnDestroy()
-    {
-        if (TouchHandler.Instance)
-            TouchHandler.Instance.onTouch.RemoveListener(HandleTouch);
+        Debug.Log($"[DescriptionManager] Showing description for {modelTitle}");
     }
 }

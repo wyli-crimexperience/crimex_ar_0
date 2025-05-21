@@ -172,6 +172,10 @@ EditorBuildSettings:
       type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: fe77427cef54f7048a58694ee581a124, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 1e5e2c5662d751c4380f64f1d7ba9cc0,
+      type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: deee42371701563499fc6fce09302191,
+      type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c199e683398494f32b4cde18e73ab731,
       type: 2}
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 0b53a025a635a4393ba0b49822242280,

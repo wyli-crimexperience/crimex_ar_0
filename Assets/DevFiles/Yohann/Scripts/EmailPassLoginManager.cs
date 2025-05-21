@@ -6,6 +6,7 @@ using Firebase.Auth;
 using Firebase.Firestore;
 using Firebase;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class EmailPassLogin : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class EmailPassLogin : MonoBehaviour
 
     private const int MIN_PASSWORD_LENGTH = 6;
     private const string PASSWORD_ERROR_MESSAGE = "Password must be at least {0} characters long";
+    private const int MaxRetryAttempts = 3;
 
     private enum NotificationType { Error, Success, Warning }
 
@@ -70,23 +72,47 @@ public class EmailPassLogin : MonoBehaviour
         loginUi.SetActive(false);
         signupUi.SetActive(false);
         SuccessUi.SetActive(false);
-        CheckUserLoggedIn();
+        InitializeFirebaseAndCheckUser();
     }
 
-    private void CheckUserLoggedIn()
+    private async void InitializeFirebaseAndCheckUser()
     {
-        var user = FirebaseAuth.DefaultInstance.CurrentUser;
-        if (user != null && user.IsEmailVerified)
+        int retryCount = 0;
+        const int maxRetries = 3;
+
+        while (retryCount < maxRetries)
         {
-            Debug.Log("User logged in and verified. Loading MainMenu...");
-            SceneManager.LoadScene(mainMenuSceneName);
+            var dependencyTask = FirebaseApp.CheckAndFixDependenciesAsync();
+            await dependencyTask;
+
+            if (dependencyTask.Result == DependencyStatus.Available)
+            {
+                FirebaseAuth auth = FirebaseAuth.DefaultInstance;
+                var user = auth.CurrentUser;
+
+                if (user != null && user.IsEmailVerified)
+                {
+                    Debug.Log("User logged in and verified. Loading MainMenu...");
+                    SceneManager.LoadScene(mainMenuSceneName);
+                }
+                else
+                {
+                    Debug.Log("No user logged in or email not verified. Showing login UI...");
+                    loadingScreen.SetActive(false);
+                    loginUi.SetActive(true);
+                }
+                return;
+            }
+            else
+            {
+                retryCount++;
+                ShowNotification($"Firebase init failed: {dependencyTask.Result}. Retrying... ({retryCount}/{maxRetries})", NotificationType.Warning);
+                await Task.Delay(2000); // Wait before retry
+            }
         }
-        else
-        {
-            Debug.Log("No user logged in or email not verified. Showing login UI...");
-            loadingScreen.SetActive(false);
-            loginUi.SetActive(true);
-        }
+
+        ShowNotification("Unable to initialize Firebase. Please check your internet connection or reinstall the app.", NotificationType.Error);
+        loadingScreen.SetActive(false);
     }
 
     public async void SignUp()
@@ -112,10 +138,8 @@ public class EmailPassLogin : MonoBehaviour
 
             string fullName = $"{SignupFirstName.text.Trim()} {SignupLastName.text.Trim()}".Trim();
 
-            // Update Firebase Auth user profile
             await result.User.UpdateUserProfileAsync(new UserProfile { DisplayName = fullName });
 
-            // Clear input fields
             SignupEmail.text = SignupPassword.text = SignupPasswordConfirm.text = "";
             SignupFirstName.text = SignupLastName.text = "";
 
@@ -175,7 +199,6 @@ public class EmailPassLogin : MonoBehaviour
 
             if (result.User.IsEmailVerified)
             {
-                // Validate class code
                 string enteredClassCode = classCodeInput.text.Trim();
                 FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
                 DocumentReference classDocRef = db.Collection("Classes").Document(enteredClassCode);
@@ -193,12 +216,12 @@ public class EmailPassLogin : MonoBehaviour
                 SuccessUi.SetActive(true);
                 successDescriptionText.text = "Id: " + result.User.UserId;
 
-                // Optionally: Save class code to user's Firestore document
                 DocumentReference userDocRef = db.Collection("Students").Document(result.User.UserId);
                 await userDocRef.SetAsync(new Dictionary<string, object>
-            {
-                { "classCode", enteredClassCode }
-            }, SetOptions.MergeAll);
+                {
+                    { "classCode", enteredClassCode },
+                    { "lastLogin", Timestamp.GetCurrentTimestamp() }
+                }, SetOptions.MergeAll);
 
                 SceneManager.LoadScene(mainMenuSceneName);
             }

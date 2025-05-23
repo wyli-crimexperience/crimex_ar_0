@@ -2,7 +2,7 @@
 - Project name: crimex_ar_0
 - Unity version: Unity 6000.0.25f1
 - Active game object:
-  - Name: bulletmicroscope
+  - Name: AreYouSurePanel
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

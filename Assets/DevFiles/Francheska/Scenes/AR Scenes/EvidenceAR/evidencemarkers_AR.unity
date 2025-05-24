@@ -1620,9 +1620,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86908eff0ad76634ca048829c9de7d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arCamera: {fileID: 638590344}
+  vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
+  inertiaDamp: 5
   scaleSpeed: 0.01
-  cam: {fileID: 638590344}
+  minScale: 0.1
+  maxScale: 2
+  doubleTapThreshold: 0.3
 --- !u!1 &6179940145713144093
 GameObject:
   m_ObjectHideFlags: 0

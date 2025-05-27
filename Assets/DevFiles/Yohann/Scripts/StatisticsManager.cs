@@ -79,7 +79,7 @@ public class StatisticsManager : MonoBehaviour
             return;
         }
 
-        CollectionReference logsRef = firestore.Collection("Students").Document(user.UserId).Collection("Logs");
+        CollectionReference logsRef = firestore.Collection("Students").Document(user.UserId).Collection("LogsAR");
         logsRef.OrderByDescending("timestamp").GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted || task.IsCanceled)

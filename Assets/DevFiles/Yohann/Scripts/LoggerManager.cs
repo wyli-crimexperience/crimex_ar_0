@@ -71,7 +71,7 @@ public class LoggerManager : MonoBehaviour
 
         db.Collection("Students")
           .Document(userId)
-          .Collection("Logs")
+          .Collection("LogsAR")
           .Document(documentId)
           .SetAsync(logEntry)
           .ContinueWithOnMainThread(task =>

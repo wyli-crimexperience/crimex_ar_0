@@ -303,46 +303,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &50899407
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.377, y: 0.36450094}
   m_AnchorMax: {x: 0.6516296, y: 0.39684114}
-  m_AnchoredPosition: {x: 2.5, y: -10.5}
+  m_AnchoredPosition: {x: 149, y: 1291}
   m_SizeDelta: {x: -71.2999, y: -45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430867257
@@ -1112,46 +1076,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &521094512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,46 +1520,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &597590314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,46 +1788,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &638590339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,46 +2141,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &755844755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,46 +3760,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &1427656486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,7 +3922,16 @@ MonoBehaviour:
   - {fileID: 1394276214}
   - {fileID: 701578886}
   - {fileID: 479752330}
-  customModelNames: []
+  customModelNames:
+  - Evidence Tape Roll
+  - Evidence Collector Lifters
+  - Tweezers
+  - Scissors
+  - Carbide Tip Scriber
+  - Liquid Sampling Pipette
+  - Probe with Paint
+  - Disposable Syringe
+  - Stainless Steel Spatula
   targetObserver: {fileID: 933212638}
   hideModelsWhenTargetLost: 1
   rememberLastSelection: 1
@@ -4316,8 +4109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363, y: -1015}
-  m_SizeDelta: {x: 95.2521, y: 69.1896}
+  m_AnchoredPosition: {x: -215.19, y: -1015.00006}
+  m_SizeDelta: {x: 213.38, y: 50.348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488286362
 MonoBehaviour:
@@ -4597,46 +4390,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1001 &1663031172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4821,46 +4578,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &1727556450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5029,24 +4750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe85380130a83f468dc07dabfabc51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onTouchBegan:
+  onTouch:
     m_PersistentCalls:
       m_Calls: []
-  onTouchMoved:
-    m_PersistentCalls:
-      m_Calls: []
-  onTouchEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  onTouchCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  onTouchPhaseChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  enableDebugLogging: 0
-  trackMultiTouch: 1
-  maxTouchCount: 10
 --- !u!4 &1803353040
 Transform:
   m_ObjectHideFlags: 0
@@ -5246,46 +4952,10 @@ MonoBehaviour:
   vuforiaTarget: {fileID: 933212638}
   rotationSpeed: 0.2
   inertiaDamp: 5
-  inertiaMultiplier: 2
-  invertVerticalRotation: 0
-  constrainVerticalRotation: 1
-  maxVerticalAngle: 60
   scaleSpeed: 1
   minScale: 0.1
   maxScale: 5
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   doubleTapThreshold: 0.5
-  enableHapticFeedback: 1
-  resetAnimationDuration: 0.5
-  raycastLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  touchSensitivity: 1
-  smoothDamping: 1
-  smoothTime: 0.1
 --- !u!1 &1891444046
 GameObject:
   m_ObjectHideFlags: 0

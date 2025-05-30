@@ -1294,7 +1294,7 @@ RectTransform:
   m_GameObject: {fileID: 540491030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.0409122, y: 3.0409122, z: 3.0409122}
+  m_LocalScale: {x: 4.8149805, y: 4.8149805, z: 4.8149805}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1694683672}
@@ -1302,10 +1302,10 @@ RectTransform:
   - {fileID: 1894894827}
   m_Father: {fileID: 597590315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.377, y: 0.36450094}
-  m_AnchorMax: {x: 0.6516296, y: 0.39684114}
-  m_AnchoredPosition: {x: 2.5, y: -2}
-  m_SizeDelta: {x: -106.7991, y: -57.175}
+  m_AnchorMin: {x: 0.25500003, y: 0.91877204}
+  m_AnchorMax: {x: 0.9334075, y: 0.94860965}
+  m_AnchoredPosition: {x: 0.21994019, y: 0}
+  m_SizeDelta: {x: -577.5739, y: -51.17505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &572000150
 PrefabInstance:
@@ -1460,7 +1460,6 @@ RectTransform:
   - {fileID: 521094513}
   - {fileID: 725569050}
   - {fileID: 540491034}
-  - {fileID: 2101004407}
   m_Father: {fileID: 1427656490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1945,8 +1944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363.00012, y: -1015}
-  m_SizeDelta: {x: 95.2521, y: 69.1896}
+  m_AnchoredPosition: {x: -272.53418, y: -1072}
+  m_SizeDelta: {x: 167.5496, y: 40.9981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725569051
 MonoBehaviour:
@@ -2053,8 +2052,8 @@ GameObject:
   - component: {fileID: 933212639}
   - component: {fileID: 933212638}
   - component: {fileID: 933212637}
-  - component: {fileID: 933212636}
   - component: {fileID: 933212640}
+  - component: {fileID: 933212641}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -2062,25 +2061,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &933212636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933212635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 933212638}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: prying_tools
-  mDatasetName: Vuforia/crimeXperienceAR.xml
-  mCastedBehaviour: {fileID: 933212638}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &933212637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,7 +2131,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 933212636}
+  mPreview: {fileID: 933212641}
 --- !u!4 &933212639
 Transform:
   m_ObjectHideFlags: 0
@@ -2187,6 +2167,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modeLabel: {fileID: 1440177879}
+--- !u!114 &933212641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933212635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 933212638}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: prying_tools
+  mDatasetName: Vuforia/crimeXperienceAR.xml
+  mCastedBehaviour: {fileID: 933212638}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1000929142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4086,11 +4085,11 @@ Transform:
   m_GameObject: {fileID: 2101004406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.2381, y: -34.467133, z: 17.723549}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalPosition: {x: 766.98413, y: 1498.0438, z: 23.6314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 597590315}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2101004408
 MonoBehaviour:
@@ -4113,7 +4112,18 @@ MonoBehaviour:
   - {fileID: 1765975008}
   - {fileID: 1816201927}
   - {fileID: 697457158}
+  customModelNames:
+  - Crowbar
+  - Flat Bar
+  - Halligan Bar
+  - Pry Bar
+  - Kelly Bar
+  - Hydraulic Speader
+  - Rabbit Tool
   targetObserver: {fileID: 933212638}
+  hideModelsWhenTargetLost: 0
+  rememberLastSelection: 1
+  transitionDelay: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4124,3 +4134,4 @@ SceneRoots:
   - {fileID: 1427656490}
   - {fileID: 933212639}
   - {fileID: 1803353040}
+  - {fileID: 2101004407}

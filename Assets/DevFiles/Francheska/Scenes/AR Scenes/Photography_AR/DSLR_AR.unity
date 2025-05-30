@@ -1864,12 +1864,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arCamera: {fileID: 638590344}
   vuforiaTarget: {fileID: 933212638}
-  rotationSpeed: 0.1
+  touchHandler: {fileID: 1803353039}
+  rotationSpeed: 0.5
   inertiaDamp: 5
-  scaleSpeed: 1
+  inertiaMultiplier: 2
+  invertVerticalRotation: 0
+  constrainVerticalRotation: 1
+  maxVerticalAngle: 60
+  scaleSpeed: 5
   minScale: 0.1
-  maxScale: 4
-  doubleTapThreshold: 0.5
+  maxScale: 2
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  doubleTapThreshold: 0.3
+  enableHapticFeedback: 1
+  resetAnimationDuration: 0.5
+  raycastLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  touchSensitivity: 1
+  smoothDamping: 1
+  smoothTime: 0.1
+  enableDebugLogging: 1
 --- !u!1 &615905194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7370476502150620055, guid: c89b2242be9f4f84289ce0456169364b,
@@ -2337,8 +2375,8 @@ GameObject:
   - component: {fileID: 933212639}
   - component: {fileID: 933212638}
   - component: {fileID: 933212637}
-  - component: {fileID: 933212640}
   - component: {fileID: 933212641}
+  - component: {fileID: 933212642}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -2416,7 +2454,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 933212640}
+  mPreview: {fileID: 933212642}
 --- !u!4 &933212639
 Transform:
   m_ObjectHideFlags: 0
@@ -2433,7 +2471,20 @@ Transform:
   - {fileID: 615905191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &933212640
+--- !u!114 &933212641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933212635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1ecf821e3684e42a749ec7e1c15c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modeLabel: {fileID: 1263246009}
+--- !u!114 &933212642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2452,19 +2503,6 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
---- !u!114 &933212641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933212635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1ecf821e3684e42a749ec7e1c15c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modeLabel: {fileID: 1263246009}
 --- !u!114 &1055982552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3588,9 +3626,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe85380130a83f468dc07dabfabc51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onTouch:
-    m_PersistentCalls:
-      m_Calls: []
+  tapThreshold: 0.3
+  doubleTapThreshold: 0.3
+  holdThreshold: 1
+  dragThreshold: 20
+  doubleTapPositionThreshold: 100
+  maxTouchHistory: 10
+  enableDebugLogging: 1
+  uiLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &1803353040
 Transform:
   m_ObjectHideFlags: 0

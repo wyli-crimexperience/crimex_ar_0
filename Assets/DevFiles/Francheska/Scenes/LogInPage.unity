@@ -7918,9 +7918,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e61abfa060a33d4d83691b6f365abad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 5
-  fadeAwayPerSecond: 0
-  alphaValue: 0
+  targetText: {fileID: 1372093130}
+  findTextAutomatically: 1
+  fadeProfiles:
+  - name: FadeOut
+    duration: 2
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    fadeIn: 0
+    delay: 0
+    loop: 0
+    loopDelay: 0
+    autoStart: 0
+    autoStartDelay: 0
+  - name: FadeIn
+    duration: 2
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    fadeIn: 1
+    delay: 0
+    loop: 0
+    loopDelay: 0
+    autoStart: 0
+    autoStartDelay: 0
+  defaultProfileIndex: 0
+  unscaledTime: 0
+  disableGameObjectOnComplete: 1
+  resetOnEnable: 1
+  minAlpha: 0
+  maxAlpha: 1
+  useCoroutines: 1
+  cacheOriginalColor: 1
+  enableDebugLogging: 0
+  OnFadeStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFadeCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFadeCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFadeProgress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1390667688
 GameObject:
   m_ObjectHideFlags: 0
@@ -10935,13 +11020,38 @@ MonoBehaviour:
   signupUi: {fileID: 763017918}
   SuccessUi: {fileID: 1537161490}
   logTxt: {fileID: 1372093130}
-  fadeText: {fileID: 1372093132}
-  notificationDuration: 5
+  fadeTextManager: {fileID: 1372093132}
+  errorFadeProfile: Error
+  successFadeProfile: Success
+  warningFadeProfile: Warning
   errorColor: {r: 1, g: 0.3529412, b: 0.3647059, a: 1}
   successColor: {r: 0.0017067959, g: 0.7264151, b: 0, a: 1}
   warningColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
+  infoColor: {r: 1, g: 1, b: 1, a: 1}
   successDescriptionText: {fileID: 1731476865}
   mainMenuSceneName: HomePage
+  sceneTransitionDelay: 2
+  minPasswordLength: 6
+  maxPasswordLength: 128
+  requireSpecialCharacters: 0
+  requireNumbers: 0
+  requireUppercase: 0
+  maxRetryAttempts: 3
+  retryDelay: 2
+  enableBruteForceProtection: 1
+  enableDebugLogging: 0
+  OnLoginSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSignupSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAuthenticationFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFirebaseInitialized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1902100883
 Transform:
   m_ObjectHideFlags: 0

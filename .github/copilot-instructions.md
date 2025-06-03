@@ -2,7 +2,7 @@
 - Project name: crimex_ar_0
 - Unity version: Unity 6000.0.25f1
 - Active game object:
-  - Name: magnifying_glass
+  - Name: HUD-Login
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -3828,6 +3828,7 @@ GameObject:
   - component: {fileID: 763017919}
   - component: {fileID: 763017921}
   - component: {fileID: 763017920}
+  - component: {fileID: 763017922}
   m_Layer: 5
   m_Name: HUD-Register
   m_TagString: Untagged
@@ -3893,6 +3894,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763017918}
   m_CullTransparentMesh: 1
+--- !u!114 &763017922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763017918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a7d1ce1c5617448d4e7a7b47e7876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiContainer: {fileID: 763017919}
+  inputFields:
+  - {fileID: 236792865}
+  - {fileID: 1934826592}
+  - {fileID: 1227165436}
+  - {fileID: 1978107820}
+  - {fileID: 62170}
+  paddingOffset: 50
+  animationDuration: 0.3
+  detectionThreshold: 0.15
 --- !u!1 &831263835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,7 +4956,7 @@ GameObject:
   - component: {fileID: 947687385}
   - component: {fileID: 947687384}
   m_Layer: 5
-  m_Name: loginField
+  m_Name: classcodeField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5406,6 +5429,7 @@ GameObject:
   - component: {fileID: 1009001593}
   - component: {fileID: 1009001595}
   - component: {fileID: 1009001594}
+  - component: {fileID: 1009001596}
   m_Layer: 5
   m_Name: HUD-Login
   m_TagString: Untagged
@@ -5471,6 +5495,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009001592}
   m_CullTransparentMesh: 1
+--- !u!114 &1009001596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009001592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a7d1ce1c5617448d4e7a7b47e7876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiContainer: {fileID: 1009001593}
+  inputFields:
+  - {fileID: 1055565227}
+  - {fileID: 947687384}
+  - {fileID: 894086524}
+  paddingOffset: 50
+  animationDuration: 0.3
+  detectionThreshold: 0.15
 --- !u!1 &1009507076
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,8 +7588,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef4e3a6af6890046a400e2d9add981c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFrameRate: 120
-  disableVSync: 1
+  settings:
+    targetFrameRate: 120
+    disableVSync: 0
+    enableProfiler: 1
+    showFPS: 1
+    showMemory: 1
+    showCPU: 1
+    showGPU: 0
+    showBatches: 0
+    showTriangles: 0
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0.7}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    criticalColor: {r: 1, g: 0, b: 0, a: 1}
+    fontSize: 18
+    textAlignment: 0
+    lowFPSWarning: 25
+    criticalFPSWarning: 15
+    highMemoryWarning: 256
+    criticalMemoryWarning: 512
+  overlayCanvas: {fileID: 0}
+  overlayText: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  toggleKey: <Keyboard>/f1
+  resetStatsKey: <Keyboard>/f2
+  enableTouchToggle: 1
+  touchCount: 3
+  enableShakeToReset: 1
+  shakeThreshold: 2
 --- !u!1 &1354478120
 GameObject:
   m_ObjectHideFlags: 0
@@ -8573,7 +8644,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -10189,6 +10260,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e07f9ed3bd11a4bb6a9f562685dea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings:
+    enableLogging: 1
+    enableDebugLogs: 1
+    enableOfflineCache: 1
+    maxCacheSize: 100
+    retryInterval: 30
+    maxRetryAttempts: 3
+    batchUploadInterval: 10
+    maxBatchSize: 10
+    enableBatching: 1
+    logDeviceInfo: 1
+    logPerformanceMetrics: 1
+    logUserInteractions: 1
+    logSceneTransitions: 1
 --- !u!1 &1872701837
 GameObject:
   m_ObjectHideFlags: 0

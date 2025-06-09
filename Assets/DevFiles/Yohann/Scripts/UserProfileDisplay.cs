@@ -16,8 +16,13 @@ public class UserProfileData
     public string displayName = "Guest";
     public string userType = "Guest Account";
     public string profileImageUrl = "";
-    public string classCode = "";
-    public string className = "No class assigned";
+    public string company = "";
+    public string firstName = "";
+    public string lastName = "";
+    public string email = "";
+    public string role = "";
+    public List<string> enrolledClasses = new List<string>();
+    public string enrolledClassNames = "No classes assigned"; // For display purposes
 
     public UserProfileData() { }
 
@@ -25,10 +30,36 @@ public class UserProfileData
     {
         if (snapshot.Exists)
         {
-            displayName = snapshot.ContainsField("displayName") ? snapshot.GetValue<string>("displayName") : "Guest";
-            userType = snapshot.ContainsField("userType") ? snapshot.GetValue<string>("userType") : "Registered Account";
+            // Get basic user info
+            firstName = snapshot.ContainsField("firstName") ? snapshot.GetValue<string>("firstName") : "";
+            lastName = snapshot.ContainsField("lastName") ? snapshot.GetValue<string>("lastName") : "";
+            displayName = !string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName)
+                ? $"{firstName} {lastName}".Trim()
+                : "User";
+
+            email = snapshot.ContainsField("email") ? snapshot.GetValue<string>("email") : "";
+            company = snapshot.ContainsField("company") ? snapshot.GetValue<string>("company") : "";
+            role = snapshot.ContainsField("role") ? snapshot.GetValue<string>("role") : "";
+
+            // Set user type based on role
+            userType = !string.IsNullOrEmpty(role) ? char.ToUpper(role[0]) + role.Substring(1) : "User";
+
+            // Handle enrolled classes
+            if (snapshot.ContainsField("enrolledClasses"))
+            {
+                var classesArray = snapshot.GetValue<List<object>>("enrolledClasses");
+                enrolledClasses = new List<string>();
+                if (classesArray != null)
+                {
+                    foreach (var classId in classesArray)
+                    {
+                        enrolledClasses.Add(classId.ToString());
+                    }
+                }
+            }
+
+            // Profile image URL (if you have this field in your schema)
             profileImageUrl = snapshot.ContainsField("profileImageUrl") ? snapshot.GetValue<string>("profileImageUrl") : "";
-            classCode = snapshot.ContainsField("classCode") ? snapshot.GetValue<string>("classCode") : "";
         }
     }
 }
@@ -40,6 +71,8 @@ public class ProfileUIReferences
     public TextMeshProUGUI usernameText;
     public TextMeshProUGUI userType;
     public TextMeshProUGUI classroomCodeText;
+    public TextMeshProUGUI companyText; // New field for company
+    public TextMeshProUGUI emailText; // New field for email
 
     [Header("Image Components")]
     public RawImage profileImage;
@@ -178,7 +211,7 @@ public class UserProfileDisplay : MonoBehaviour
         try
         {
             FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-            DocumentReference docRef = db.Collection("Students").Document(userId);
+            DocumentReference docRef = db.Collection("users").Document(userId); // Changed from "Students" to "users"
 
             DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
 
@@ -187,10 +220,10 @@ public class UserProfileDisplay : MonoBehaviour
                 currentProfileData = new UserProfileData(snapshot);
                 LogDebug($"Profile loaded: {currentProfileData.displayName}");
 
-                // Load class name if classCode exists
-                if (!string.IsNullOrEmpty(currentProfileData.classCode))
+                // Load class names if enrolled classes exist
+                if (currentProfileData.enrolledClasses != null && currentProfileData.enrolledClasses.Count > 0)
                 {
-                    await LoadClassName(currentProfileData.classCode);
+                    await LoadClassNames(currentProfileData.enrolledClasses);
                 }
 
                 DisplayUserProfile();
@@ -211,37 +244,63 @@ public class UserProfileDisplay : MonoBehaviour
         }
     }
 
-    private async Task LoadClassName(string classCode)
+    private async Task LoadClassNames(List<string> classIds)
     {
         try
         {
             FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-            DocumentReference classDocRef = db.Collection("Classes").Document(classCode);
-            DocumentSnapshot classSnapshot = await classDocRef.GetSnapshotAsync();
+            List<string> classNames = new List<string>();
 
-            if (classSnapshot.Exists && classSnapshot.ContainsField("className"))
+            foreach (string classId in classIds)
             {
-                currentProfileData.className = classSnapshot.GetValue<string>("className");
-                LogDebug($"Class name loaded: {currentProfileData.className}");
+                try
+                {
+                    DocumentReference classDocRef = db.Collection("classes").Document(classId); // Changed to lowercase "classes"
+                    DocumentSnapshot classSnapshot = await classDocRef.GetSnapshotAsync();
+
+                    if (classSnapshot.Exists && classSnapshot.ContainsField("name")) // Changed from "className" to "name"
+                    {
+                        string className = classSnapshot.GetValue<string>("name");
+                        classNames.Add(className);
+                        LogDebug($"Class name loaded: {className} (ID: {classId})");
+                    }
+                    else
+                    {
+                        classNames.Add($"Unknown Class ({classId})");
+                        LogWarning($"Class document not found or 'name' field missing for ID: {classId}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError($"Failed to load class {classId}: {ex.Message}");
+                    classNames.Add($"Error loading class ({classId})");
+                }
             }
-            else
-            {
-                currentProfileData.className = "Class not found";
-                LogWarning($"Class document not found for code: {classCode}");
-            }
+
+            currentProfileData.enrolledClassNames = classNames.Count > 0
+                ? string.Join(", ", classNames)
+                : "No classes assigned";
+
+            LogDebug($"Loaded {classNames.Count} class names: {currentProfileData.enrolledClassNames}");
         }
         catch (Exception ex)
         {
-            LogError($"Failed to load class name: {ex.Message}");
-            currentProfileData.className = "Error loading class";
+            LogError($"Failed to load class names: {ex.Message}");
+            currentProfileData.enrolledClassNames = "Error loading classes";
         }
     }
-
     private void DisplayUserProfile()
     {
         UpdateTextComponent(uiRefs.usernameText, currentProfileData.displayName, normalTextColor);
         UpdateTextComponent(uiRefs.userType, currentProfileData.userType, normalTextColor);
-        UpdateTextComponent(uiRefs.classroomCodeText, currentProfileData.className, normalTextColor);
+        UpdateTextComponent(uiRefs.classroomCodeText, currentProfileData.enrolledClassNames, normalTextColor);
+
+        // Update new fields if UI references exist
+        if (uiRefs.companyText != null)
+            UpdateTextComponent(uiRefs.companyText, currentProfileData.company, normalTextColor);
+
+        if (uiRefs.emailText != null)
+            UpdateTextComponent(uiRefs.emailText, currentProfileData.email, normalTextColor);
 
         LoadProfileImage(currentProfileData.profileImageUrl);
     }
@@ -253,7 +312,13 @@ public class UserProfileDisplay : MonoBehaviour
 
         UpdateTextComponent(uiRefs.usernameText, "Guest", normalTextColor);
         UpdateTextComponent(uiRefs.userType, "Guest Account", normalTextColor);
-        UpdateTextComponent(uiRefs.classroomCodeText, "No class assigned", normalTextColor);
+        UpdateTextComponent(uiRefs.classroomCodeText, "No classes assigned", normalTextColor);
+
+        if (uiRefs.companyText != null)
+            UpdateTextComponent(uiRefs.companyText, "", normalTextColor);
+
+        if (uiRefs.emailText != null)
+            UpdateTextComponent(uiRefs.emailText, "", normalTextColor);
 
         SetDefaultProfileImage();
         OnProfileLoaded?.Invoke(currentProfileData);
@@ -264,6 +329,12 @@ public class UserProfileDisplay : MonoBehaviour
         UpdateTextComponent(uiRefs.usernameText, "Error", errorTextColor);
         UpdateTextComponent(uiRefs.userType, errorMessage, errorTextColor);
         UpdateTextComponent(uiRefs.classroomCodeText, "Please try again", errorTextColor);
+
+        if (uiRefs.companyText != null)
+            UpdateTextComponent(uiRefs.companyText, "", errorTextColor);
+
+        if (uiRefs.emailText != null)
+            UpdateTextComponent(uiRefs.emailText, "", errorTextColor);
 
         SetDefaultProfileImage();
     }
@@ -303,16 +374,13 @@ public class UserProfileDisplay : MonoBehaviour
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
         {
-            // Set timeout and other options
             request.timeout = 10;
-
             yield return request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
             {
                 Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
 
-                // Resize if too large
                 if (texture.width > maxImageSize || texture.height > maxImageSize)
                 {
                     texture = ResizeTexture(texture, maxImageSize);
@@ -320,7 +388,6 @@ public class UserProfileDisplay : MonoBehaviour
 
                 SetProfileImage(texture);
 
-                // Cache the texture
                 if (cacheProfileImages)
                 {
                     imageCache[url] = texture;

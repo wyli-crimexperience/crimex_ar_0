@@ -307,7 +307,7 @@ public class LoggerManager : MonoBehaviour
 
         var firestoreData = logEntry.ToFirestoreData();
 
-        db.Collection("Students")
+        db.Collection("users")
           .Document(logEntry.userId)
           .Collection("LogsAR")
           .Document(logEntry.documentId)
@@ -410,7 +410,7 @@ public class LoggerManager : MonoBehaviour
         {
             try
             {
-                var docRef = db.Collection("Students")
+                var docRef = db.Collection("users")
                              .Document(logEntry.userId)
                              .Collection("LogsAR")
                              .Document(logEntry.documentId);
@@ -515,12 +515,12 @@ public class LoggerManager : MonoBehaviour
 
         // Generate a persistent guest ID
         string guestId = PlayerPrefs.GetString("GuestUserId", "");
-        if (string.IsNullOrEmpty(guestId))
-        {
-            guestId = $"guest_{SystemInfo.deviceUniqueIdentifier}_{DateTime.Now.Ticks}";
-            PlayerPrefs.SetString("GuestUserId", guestId);
-            PlayerPrefs.Save();
-        }
+        //if (string.IsNullOrEmpty(guestId))
+        //{
+        //    guestId = $"guest_{SystemInfo.deviceUniqueIdentifier}_{DateTime.Now.Ticks}";
+        //    PlayerPrefs.SetString("GuestUserId", guestId);
+        //    PlayerPrefs.Save();
+        //}
 
         return guestId;
     }

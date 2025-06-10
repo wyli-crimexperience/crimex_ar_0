@@ -1,0 +1,4 @@
+repository "crimex_ar_0/crimex_ar_0@18968296203903@cloud"
+  path "/"
+    br "/main"
+    co "/main"

@@ -9,6 +9,7 @@ using Firebase.Extensions;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [System.Serializable]
 public class UserProfileData
@@ -251,37 +252,40 @@ public class UserProfileDisplay : MonoBehaviour
             FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
             List<string> classNames = new List<string>();
 
-            foreach (string classId in classIds)
+            if (classIds.Count == 0)
             {
-                try
-                {
-                    DocumentReference classDocRef = db.Collection("classes").Document(classId); // Changed to lowercase "classes"
-                    DocumentSnapshot classSnapshot = await classDocRef.GetSnapshotAsync();
+                currentProfileData.enrolledClassNames = "No classes assigned";
+                return;
+            }
 
-                    if (classSnapshot.Exists && classSnapshot.ContainsField("name")) // Changed from "className" to "name"
-                    {
-                        string className = classSnapshot.GetValue<string>("name");
-                        classNames.Add(className);
-                        LogDebug($"Class name loaded: {className} (ID: {classId})");
-                    }
-                    else
-                    {
-                        classNames.Add($"Unknown Class ({classId})");
-                        LogWarning($"Class document not found or 'name' field missing for ID: {classId}");
-                    }
-                }
-                catch (Exception ex)
+            // Use batch query for better performance
+            Query query = db.Collection("classes").WhereIn("__name__", classIds);
+            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
+
+            foreach (DocumentSnapshot document in querySnapshot.Documents)
+            {
+                if (document.ContainsField("name"))
                 {
-                    LogError($"Failed to load class {classId}: {ex.Message}");
-                    classNames.Add($"Error loading class ({classId})");
+                    string className = document.GetValue<string>("name");
+                    classNames.Add(className); // Only add valid class names
+                    LogDebug($"Class name loaded: {className} (ID: {document.Id})");
                 }
+            }
+
+            // Log any missing classes for debugging (but don't display them)
+            var foundClassIds = querySnapshot.Documents.Select(doc => doc.Id).ToHashSet();
+            var missingClassIds = classIds.Where(id => !foundClassIds.Contains(id)).ToList();
+
+            if (missingClassIds.Count > 0)
+            {
+                LogWarning($"Missing class documents for IDs: {string.Join(", ", missingClassIds)}");
             }
 
             currentProfileData.enrolledClassNames = classNames.Count > 0
                 ? string.Join(", ", classNames)
                 : "No classes assigned";
 
-            LogDebug($"Loaded {classNames.Count} class names: {currentProfileData.enrolledClassNames}");
+            LogDebug($"Loaded {classNames.Count} valid class names: {currentProfileData.enrolledClassNames}");
         }
         catch (Exception ex)
         {

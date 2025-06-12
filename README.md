@@ -45,5 +45,3 @@ Once the project is loaded:
 
 [MIT](LICENSE) or your preferred license.
 ```
-
-Let me know if you want it customized with specific version numbers, features, or dependencies.

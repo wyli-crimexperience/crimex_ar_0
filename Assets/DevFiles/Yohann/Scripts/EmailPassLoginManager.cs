@@ -524,8 +524,6 @@ public class EmailPassLogin : MonoBehaviour
                 return;
             }
 
-            // Update user login data and handle class enrollment
-            await UpdateUserLoginData(result.User);
 
             // Show success notification and UI
             ShowNotification("Login successful! Welcome back.", NotificationType.Success);
@@ -613,12 +611,11 @@ public class EmailPassLogin : MonoBehaviour
         {
             if (enableDebugLogging)
             {
-                Debug.Log("No class code provided - proceeding without class enrollment");
+                Debug.Log("No class code provided - proceeding without class validation");
             }
             return true; // Allow login without class code
         }
 
-        // Check if database is initialized
         if (db == null)
         {
             ShowNotification("Database not initialized. Please try again.", NotificationType.Error);
@@ -632,21 +629,21 @@ public class EmailPassLogin : MonoBehaviour
         try
         {
             string classCode = classCodeInput.text.Trim();
+            string email = LoginEmail.text.Trim();
 
             if (enableDebugLogging)
             {
-                Debug.Log($"Validating class code: {classCode}");
+                Debug.Log($"Validating class code: {classCode} for user: {email}");
             }
 
-            // ✅ QUERY BY CODE FIELD (since document ID is random)
-            Query query = db.Collection("classes")
+            // STEP 1: Find the class by code
+            Query classQuery = db.Collection("classes")
                 .WhereEqualTo("code", classCode)
-                .Limit(1); // Only need to find one matching document
+                .Limit(1);
 
-            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
+            QuerySnapshot classQuerySnapshot = await classQuery.GetSnapshotAsync();
 
-            // Check if any documents were found
-            if (querySnapshot.Count == 0)
+            if (classQuerySnapshot.Count == 0)
             {
                 ShowNotification("Invalid class code. Please check and try again.", NotificationType.Error);
                 if (enableDebugLogging)
@@ -656,18 +653,70 @@ public class EmailPassLogin : MonoBehaviour
                 return false;
             }
 
-            // Get the first (and should be only) matching document
-            DocumentSnapshot classSnapshot = querySnapshot.Documents.First();
+            DocumentSnapshot classSnapshot = classQuerySnapshot.Documents.First();
+            string classDocumentId = classSnapshot.Id;
 
-            // Log the found class for debugging
             if (enableDebugLogging)
             {
                 string className = classSnapshot.ContainsField("name") ? classSnapshot.GetValue<string>("name") : "Unknown";
-                string documentId = classSnapshot.Id;
-                Debug.Log($"Found class: {className} with code: {classCode} (Document ID: {documentId})");
+                Debug.Log($"Found class: {className} with code: {classCode} (Document ID: {classDocumentId})");
             }
 
-            // Check if class has expired (due date validation)
+            // STEP 2: Check if user exists and is enrolled in this class
+            Query userQuery = db.Collection("users")
+                .WhereEqualTo("email", email)
+                .Limit(1);
+
+            QuerySnapshot userQuerySnapshot = await userQuery.GetSnapshotAsync();
+
+            if (userQuerySnapshot.Count == 0)
+            {
+                ShowNotification("User not found. Please check your email.", NotificationType.Error);
+                if (enableDebugLogging)
+                {
+                    Debug.LogWarning($"User with email '{email}' not found in database");
+                }
+                return false;
+            }
+
+            DocumentSnapshot userSnapshot = userQuerySnapshot.Documents.First();
+
+            if (!userSnapshot.ContainsField("enrolledClasses"))
+            {
+                ShowNotification("You are not enrolled in any classes.", NotificationType.Warning);
+                if (enableDebugLogging)
+                {
+                    Debug.LogWarning($"User '{email}' has no enrolledClasses field");
+                }
+                return false;
+            }
+
+            var enrolledClassesArray = userSnapshot.GetValue<object[]>("enrolledClasses");
+            List<string> enrolledClassIds = enrolledClassesArray?.Select(obj => obj.ToString()).ToList() ?? new List<string>();
+
+            if (enrolledClassIds.Count == 0)
+            {
+                ShowNotification("You are not enrolled in any classes.", NotificationType.Warning);
+                if (enableDebugLogging)
+                {
+                    Debug.LogWarning($"User '{email}' has empty enrolledClasses array");
+                }
+                return false;
+            }
+
+            // STEP 3: Check if the class document ID is in user's enrolled classes
+            if (!enrolledClassIds.Contains(classDocumentId))
+            {
+                ShowNotification("You are not enrolled in this class.", NotificationType.Warning);
+                if (enableDebugLogging)
+                {
+                    Debug.LogWarning($"User '{email}' is not enrolled in class '{classCode}' (Document ID: {classDocumentId})");
+                    Debug.Log($"User's enrolled classes: [{string.Join(", ", enrolledClassIds)}]");
+                }
+                return false;
+            }
+
+            // STEP 4: Additional class validation
             if (classSnapshot.ContainsField("dueDate"))
             {
                 var dueDate = classSnapshot.GetValue<Timestamp>("dueDate");
@@ -682,13 +731,12 @@ public class EmailPassLogin : MonoBehaviour
                 }
             }
 
-            // Check if class is active/enabled
             if (classSnapshot.ContainsField("isActive"))
             {
                 bool isActive = classSnapshot.GetValue<bool>("isActive");
                 if (!isActive)
                 {
-                    ShowNotification("This class is currently inactive and not accepting new students.", NotificationType.Warning);
+                    ShowNotification("This class is currently inactive.", NotificationType.Warning);
                     if (enableDebugLogging)
                     {
                         Debug.LogWarning($"Class '{classCode}' is inactive");
@@ -697,36 +745,9 @@ public class EmailPassLogin : MonoBehaviour
                 }
             }
 
-            // Check enrollment capacity if available
-            if (classSnapshot.ContainsField("maxStudents") && classSnapshot.ContainsField("currentEnrollment"))
-            {
-                int maxStudents = classSnapshot.GetValue<int>("maxStudents");
-                int currentEnrollment = classSnapshot.GetValue<int>("currentEnrollment");
-
-                if (currentEnrollment >= maxStudents)
-                {
-                    ShowNotification("This class is full and cannot accept more students.", NotificationType.Warning);
-                    if (enableDebugLogging)
-                    {
-                        Debug.LogWarning($"Class '{classCode}' is full. {currentEnrollment}/{maxStudents} students enrolled");
-                    }
-                    return false;
-                }
-            }
-
-            // Check for auto-assessment setting (informational only)
-            if (classSnapshot.ContainsField("autoAssessOnLogin"))
-            {
-                bool autoAssess = classSnapshot.GetValue<bool>("autoAssessOnLogin");
-                if (autoAssess && enableDebugLogging)
-                {
-                    Debug.Log($"Auto-assessment is enabled for class: {classCode}");
-                }
-            }
-
             if (enableDebugLogging)
             {
-                Debug.Log($"Class code '{classCode}' validation successful");
+                Debug.Log($"Class code '{classCode}' validation successful for user '{email}'");
             }
 
             return true;
@@ -767,122 +788,8 @@ public class EmailPassLogin : MonoBehaviour
         }
     }
 
-    private async Task UpdateUserLoginData(FirebaseUser user)
-    {
-        if (user == null || db == null) return;
 
-        var updateData = new Dictionary<string, object>
-    {
-        { "lastLogin", Timestamp.GetCurrentTimestamp() }
-    };
-
-        // If class code is provided, handle enrollment
-        if (!string.IsNullOrWhiteSpace(classCodeInput?.text))
-        {
-            string classCode = classCodeInput.text.Trim();
-
-            // Add student to class and update user's enrolled classes
-            bool enrollmentSuccess = await EnrollStudentInClass(user.UserId, classCode);
-
-            if (enrollmentSuccess)
-            {
-                // Update user's enrolledClasses array
-                DocumentReference userDocRef = db.Collection(COLLECTION_USERS).Document(user.UserId);
-                DocumentSnapshot userSnapshot = await userDocRef.GetSnapshotAsync();
-
-                if (userSnapshot.Exists)
-                {
-                    var enrolledClasses = new List<string>();
-
-                    // Get existing enrolled classes
-                    if (userSnapshot.ContainsField("enrolledClasses"))
-                    {
-                        var existingClasses = userSnapshot.GetValue<List<object>>("enrolledClasses");
-                        enrolledClasses = existingClasses?.Select(c => c.ToString()).ToList() ?? new List<string>();
-                    }
-
-                    // Add new class if not already enrolled
-                    if (!enrolledClasses.Contains(classCode))
-                    {
-                        enrolledClasses.Add(classCode);
-                        updateData["enrolledClasses"] = enrolledClasses;
-
-                        if (enableDebugLogging)
-                        {
-                            Debug.Log($"Adding class {classCode} to user's enrolled classes");
-                        }
-                    }
-                }
-            }
-        }
-
-        DocumentReference docRef = db.Collection(COLLECTION_USERS).Document(user.UserId);
-        await docRef.SetAsync(updateData, SetOptions.MergeAll);
-    }
-    private async Task<bool> EnrollStudentInClass(string studentId, string classCode)
-    {
-        try
-        {
-            // ✅ FIND CLASS BY CODE FIELD (not document ID)
-            Query query = db.Collection(COLLECTION_CLASSES)
-                .WhereEqualTo("code", classCode)
-                .Limit(1);
-
-            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
-
-            if (querySnapshot.Count == 0)
-            {
-                ShowNotification("Class not found.", NotificationType.Error);
-                return false;
-            }
-
-            DocumentSnapshot classSnapshot = querySnapshot.Documents.First();
-            DocumentReference classDocRef = classSnapshot.Reference; // Get the actual document reference
-
-            // Get current students array
-            var currentStudents = new List<string>();
-            if (classSnapshot.ContainsField("students"))
-            {
-                var existingStudents = classSnapshot.GetValue<List<object>>("students");
-                currentStudents = existingStudents?.Select(s => s.ToString()).ToList() ?? new List<string>();
-            }
-
-            // Check if student is already enrolled
-            if (currentStudents.Contains(studentId))
-            {
-                ShowNotification("You are already enrolled in this class.", NotificationType.Warning);
-                return true; // Return true because student is enrolled
-            }
-
-            // Add student to the class
-            currentStudents.Add(studentId);
-            await classDocRef.UpdateAsync("students", currentStudents);
-
-            // Get class name for notification
-            string className = classSnapshot.ContainsField("name")
-                ? classSnapshot.GetValue<string>("name")
-                : classCode;
-
-            ShowNotification($"Successfully enrolled in {className}!", NotificationType.Success);
-
-            if (enableDebugLogging)
-            {
-                Debug.Log($"Student {studentId} enrolled in class {classCode} ({className})");
-            }
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            ShowNotification("Failed to enroll in class. Please try again.", NotificationType.Error);
-            if (enableDebugLogging)
-            {
-                Debug.LogError($"Class enrollment error: {ex.Message}");
-            }
-            return false;
-        }
-    }
-    public async Task<ClassData> GetClassData(string classCode)
+   public async Task<ClassData> GetClassData(string classCode)
     {
         try
         {
@@ -1176,75 +1083,6 @@ public class EmailPassLogin : MonoBehaviour
         }
     }
 
-    // New method to handle class enrollment
-    public async Task<bool> EnrollInClass(string classCode)
-    {
-        if (auth.CurrentUser == null)
-        {
-            ShowNotification("Please log in to enroll in classes.", NotificationType.Error);
-            return false;
-        }
-
-        return await EnrollStudentInClass(auth.CurrentUser.UserId, classCode);
-    }
-
-    // New method to unenroll from a class
-    public async Task<bool> UnenrollFromClass(string classCode)
-    {
-        if (auth.CurrentUser == null) return false;
-
-        try
-        {
-            string userId = auth.CurrentUser.UserId;
-
-            // Remove from class document
-            DocumentReference classDocRef = db.Collection(COLLECTION_CLASSES).Document(classCode);
-            DocumentSnapshot classSnapshot = await classDocRef.GetSnapshotAsync();
-
-            if (classSnapshot.Exists && classSnapshot.ContainsField("students"))
-            {
-                var currentStudents = classSnapshot.GetValue<List<object>>("students");
-                var studentsList = currentStudents?.Select(s => s.ToString()).ToList() ?? new List<string>();
-
-                if (studentsList.Contains(userId))
-                {
-                    studentsList.Remove(userId);
-                    await classDocRef.UpdateAsync("students", studentsList);
-                }
-            }
-
-            // Remove from user document
-            DocumentReference userDocRef = db.Collection(COLLECTION_USERS).Document(userId);
-            DocumentSnapshot userSnapshot = await userDocRef.GetSnapshotAsync();
-
-            if (userSnapshot.Exists && userSnapshot.ContainsField("enrolledClasses"))
-            {
-                var existingClasses = userSnapshot.GetValue<List<object>>("enrolledClasses");
-                var enrolledClasses = existingClasses?.Select(c => c.ToString()).ToList() ?? new List<string>();
-
-                if (enrolledClasses.Contains(classCode))
-                {
-                    enrolledClasses.Remove(classCode);
-                    await userDocRef.UpdateAsync("enrolledClasses", enrolledClasses);
-
-                    ShowNotification($"Successfully unenrolled from class: {classCode}", NotificationType.Success);
-                    return true;
-                }
-            }
-
-            ShowNotification("Not enrolled in this class", NotificationType.Warning);
-            return false;
-        }
-        catch (Exception ex)
-        {
-            ShowNotification("Failed to unenroll from class", NotificationType.Error);
-            if (enableDebugLogging)
-            {
-                Debug.LogError($"Class unenrollment error: {ex.Message}");
-            }
-            return false;
-        }
-    }
     // Get current user's enrolled classes
     public async Task<List<string>> GetEnrolledClasses()
     {

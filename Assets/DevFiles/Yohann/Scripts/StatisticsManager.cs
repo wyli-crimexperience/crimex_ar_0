@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks; // Add this line
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +24,9 @@ public class StatisticsManager : MonoBehaviour
     public TMP_Text enrolledClassesText;
     public RawImage profileImage;
 
+    [Header("Profile Image Settings")]
+    public Texture2D defaultProfileImage; // Assign a default image in the inspector
+
     [Header("Enrolled Classes UI")]
     public Transform enrolledClassesParent; // For displaying individual class items
     public GameObject classEntryPrefab; // Prefab for individual class display
@@ -43,6 +46,7 @@ public class StatisticsManager : MonoBehaviour
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private const string COLLECTION_USERS = "users";
+    private const string COLLECTION_CLASSES = "classes"; // Add classes collection
 
     [System.Serializable]
     public class UserData
@@ -56,6 +60,22 @@ public class StatisticsManager : MonoBehaviour
         public string uid;
         public DateTime createdAt;
         public DateTime lastLogin;
+        public string profileImageUrl; // Added for profile image URL
+    }
+
+    [System.Serializable]
+    public class ClassInfo
+    {
+        public string name;
+        public string code; // Changed from classCode to code
+        public string documentId;
+
+        public ClassInfo(string name, string code, string documentId)
+        {
+            this.name = name;
+            this.code = code;
+            this.documentId = documentId;
+        }
     }
 
     private void Start()
@@ -63,8 +83,19 @@ public class StatisticsManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         firestore = FirebaseFirestore.DefaultInstance;
 
+        // Set default profile image immediately
+        SetDefaultProfileImage();
+
         LoadUserInfo();
         LoadUserLogs();
+    }
+
+    private void SetDefaultProfileImage()
+    {
+        if (profileImage != null && defaultProfileImage != null)
+        {
+            profileImage.texture = defaultProfileImage;
+        }
     }
 
     private void LoadUserInfo()
@@ -86,8 +117,9 @@ public class StatisticsManager : MonoBehaviour
                 {
                     Dictionary<string, object> userData = task.Result.ToDictionary();
                     DisplayUserInfo(userData);
-                    DisplayEnrolledClasses(userData);
+                    LoadAndDisplayEnrolledClasses(userData); // Changed to async method
                     DisplayUserStatistics(userData);
+                    LoadProfileImageFromData(userData); // Load profile image
                 }
                 catch (Exception ex)
                 {
@@ -101,6 +133,22 @@ public class StatisticsManager : MonoBehaviour
                 DisplayErrorMessage("User information not found");
             }
         });
+    }
+
+    private void LoadProfileImageFromData(Dictionary<string, object> userData)
+    {
+        string profileImageUrl = GetFieldValue(userData, "profileImageUrl", "");
+
+        if (!string.IsNullOrEmpty(profileImageUrl))
+        {
+            StartCoroutine(LoadProfileImage(profileImageUrl));
+        }
+        else
+        {
+            // Keep the default image if no URL is found
+            if (enableDebugLogging)
+                Debug.Log("No profile image URL found, using default image");
+        }
     }
 
     private void DisplayUserInfo(Dictionary<string, object> userData)
@@ -151,16 +199,79 @@ public class StatisticsManager : MonoBehaviour
         }
     }
 
-    private void DisplayEnrolledClasses(Dictionary<string, object> userData)
+    private void LoadAndDisplayEnrolledClasses(Dictionary<string, object> userData)
     {
-        List<string> enrolledClasses = GetEnrolledClassesList(userData);
+        List<string> enrolledClassIds = GetEnrolledClassesList(userData);
 
-        // Update enrolled classes text
+        if (enrolledClassIds.Count == 0)
+        {
+            DisplayEmptyEnrolledClasses();
+            return;
+        }
+
+        // Fetch class details for each enrolled class
+        StartCoroutine(FetchClassDetails(enrolledClassIds));
+    }
+
+    private System.Collections.IEnumerator FetchClassDetails(List<string> classIds)
+    {
+        List<ClassInfo> classInfoList = new List<ClassInfo>();
+        int completedRequests = 0;
+
+        foreach (string classId in classIds)
+        {
+            DocumentReference classDocRef = firestore.Collection(COLLECTION_CLASSES).Document(classId);
+
+            var task = classDocRef.GetSnapshotAsync();
+            yield return new WaitUntil(() => task.IsCompleted);
+
+            if (task.Result.Exists)
+            {
+                try
+                {
+                    Dictionary<string, object> classData = task.Result.ToDictionary();
+                    string className = GetFieldValue(classData, "name", "Unknown Class");
+                    string classCode = GetFieldValue(classData, "code", "Unknown Code"); // Changed from "classCode" to "code"
+
+                    classInfoList.Add(new ClassInfo(className, classCode, classId));
+
+                    if (enableDebugLogging)
+                        Debug.Log($"Loaded class: {className} ({classCode}) - Document ID: {classId}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Error processing class {classId}: {ex.Message}");
+                    // Add with fallback values
+                    classInfoList.Add(new ClassInfo("Unknown Class", "Unknown Code", classId));
+                }
+            }
+            else
+            {
+                if (enableDebugLogging)
+                    Debug.LogWarning($"Class document {classId} not found");
+                // Add with fallback values
+                classInfoList.Add(new ClassInfo("Class Not Found", "Unknown Code", classId));
+            }
+
+            completedRequests++;
+        }
+
+        // Wait for all requests to complete
+        yield return new WaitUntil(() => completedRequests >= classIds.Count);
+
+        // Display the results
+        DisplayEnrolledClassesInfo(classInfoList);
+    }
+
+    private void DisplayEnrolledClassesInfo(List<ClassInfo> classInfoList)
+    {
+        // Update enrolled classes text - show "Class Name (Code)"
         if (enrolledClassesText != null)
         {
-            if (enrolledClasses.Count > 0)
+            if (classInfoList.Count > 0)
             {
-                enrolledClassesText.text = string.Join(", ", enrolledClasses);
+                List<string> displayStrings = classInfoList.Select(c => $"{c.name} ({c.code})").ToList();
+                enrolledClassesText.text = string.Join(", ", displayStrings);
             }
             else
             {
@@ -177,27 +288,59 @@ public class StatisticsManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
 
-            // Create new entries
-            foreach (string classCode in enrolledClasses)
+            // Create new entries - display "Class Name (Code)"
+            foreach (ClassInfo classInfo in classInfoList)
             {
                 GameObject entryGO = Instantiate(classEntryPrefab, enrolledClassesParent);
                 TMP_Text entryText = entryGO.GetComponentInChildren<TMP_Text>();
                 if (entryText != null)
                 {
-                    entryText.text = classCode;
+                    entryText.text = $"{classInfo.name} ({classInfo.code})";
                 }
             }
+        }
+
+        // Update statistics
+        if (totalClassesText != null)
+        {
+            totalClassesText.text = classInfoList.Count.ToString();
+        }
+
+        if (enableDebugLogging)
+        {
+            Debug.Log($"Displayed {classInfoList.Count} enrolled classes");
+            foreach (var classInfo in classInfoList)
+            {
+                Debug.Log($"Class: {classInfo.name} ({classInfo.code})");
+            }
+        }
+    }
+
+    private void DisplayEmptyEnrolledClasses()
+    {
+        if (enrolledClassesText != null)
+        {
+            enrolledClassesText.text = "No classes enrolled";
+        }
+
+        // Clear existing entries
+        if (enrolledClassesParent != null)
+        {
+            foreach (Transform child in enrolledClassesParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        if (totalClassesText != null)
+        {
+            totalClassesText.text = "0";
         }
     }
 
     private void DisplayUserStatistics(Dictionary<string, object> userData)
     {
-        // Total Classes
-        if (totalClassesText != null)
-        {
-            List<string> enrolledClasses = GetEnrolledClassesList(userData);
-            totalClassesText.text = enrolledClasses.Count.ToString();
-        }
+        // Total Classes will be updated in DisplayEnrolledClassesInfo
 
         // Member Since
         if (memberSinceText != null)
@@ -437,11 +580,13 @@ public class StatisticsManager : MonoBehaviour
     private void DisplayNoUserMessage()
     {
         SetAllTextsToValue("No user logged in");
+        SetDefaultProfileImage(); // Ensure default image is shown
     }
 
     private void DisplayErrorMessage(string message)
     {
         SetAllTextsToValue(message);
+        SetDefaultProfileImage(); // Ensure default image is shown
     }
 
     private void DisplayLogError()
@@ -490,6 +635,8 @@ public class StatisticsManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(url))
         {
+            if (enableDebugLogging)
+                Debug.Log("Profile image URL is empty, keeping default image");
             yield break;
         }
 
@@ -500,7 +647,9 @@ public class StatisticsManager : MonoBehaviour
             if (uwr.result != UnityEngine.Networking.UnityWebRequest.Result.Success)
             {
                 if (enableDebugLogging)
-                    Debug.LogWarning("Failed to load profile image: " + uwr.error);
+                    Debug.LogWarning("Failed to load profile image: " + uwr.error + ". Using default image.");
+                // Keep the default image on failure
+                SetDefaultProfileImage();
             }
             else
             {
@@ -508,6 +657,9 @@ public class StatisticsManager : MonoBehaviour
                 {
                     Texture2D tex = UnityEngine.Networking.DownloadHandlerTexture.GetContent(uwr);
                     profileImage.texture = tex;
+
+                    if (enableDebugLogging)
+                        Debug.Log("Profile image loaded successfully from URL");
                 }
             }
         }

@@ -275,6 +275,15 @@ public class LoggerManager : MonoBehaviour
         try
         {
             string userId = GetCurrentUserId();
+
+            // Don't log events if there's no authenticated user
+            if (string.IsNullOrEmpty(userId))
+            {
+                if (settings.enableDebugLogs)
+                    Debug.Log($"[LoggerManager] Skipping log '{eventType}' - no authenticated user");
+                return;
+            }
+
             var logEntry = new LogEntry(eventType, userId, extraData);
 
             totalLogsAttempted++;
@@ -513,16 +522,9 @@ public class LoggerManager : MonoBehaviour
             return auth.CurrentUser.UserId;
         }
 
-        // Generate a persistent guest ID
-        string guestId = PlayerPrefs.GetString("GuestUserId", "");
-        //if (string.IsNullOrEmpty(guestId))
-        //{
-        //    guestId = $"guest_{SystemInfo.deviceUniqueIdentifier}_{DateTime.Now.Ticks}";
-        //    PlayerPrefs.SetString("GuestUserId", guestId);
-        //    PlayerPrefs.Save();
-        //}
-
-        return guestId;
+        // No authenticated user - return empty string
+        // This prevents logging for unauthenticated users
+        return string.Empty;
     }
 
     public void FlushAllLogs()

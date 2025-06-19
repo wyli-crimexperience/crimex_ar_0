@@ -91,7 +91,7 @@ public class ClassUnlockerManager : MonoBehaviour
         if (userProfileDisplay == null)
         {
             LogWarning("UserProfileDisplay reference is missing! Searching for it automatically...");
-            userProfileDisplay = FindObjectOfType<UserProfileDisplay>();
+            userProfileDisplay = FindFirstObjectByType<UserProfileDisplay>();
 
             if (userProfileDisplay == null)
             {

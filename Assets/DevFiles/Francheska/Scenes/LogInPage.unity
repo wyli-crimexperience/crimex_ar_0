@@ -11627,10 +11627,10 @@ MonoBehaviour:
   sceneTransitionDelay: 2
   minPasswordLength: 6
   maxPasswordLength: 128
-  requireSpecialCharacters: 0
-  requireNumbers: 0
-  requireUppercase: 0
-  maxRetryAttempts: 3
+  requireSpecialCharacters: 1
+  requireNumbers: 1
+  requireUppercase: 1
+  maxRetryAttempts: 5
   retryDelay: 2
   enableBruteForceProtection: 1
   enableDebugLogging: 0

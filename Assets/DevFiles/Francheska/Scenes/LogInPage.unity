@@ -4524,7 +4524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 430, y: -410.51785}
+  m_AnchoredPosition: {x: 430, y: -336.40253}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &865896087
@@ -5618,8 +5618,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 430, y: -187.67485}
-  m_SizeDelta: {x: 106.0243, y: 105.686}
+  m_AnchoredPosition: {x: 430, y: -103.557526}
+  m_SizeDelta: {x: 126.0883, y: 125.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043139544
 MonoBehaviour:
@@ -7923,11 +7923,11 @@ MonoBehaviour:
   settings:
     targetFrameRate: 120
     disableVSync: 0
-    enableProfiler: 1
+    enableProfiler: 0
     showFPS: 1
     showMemory: 1
     showCPU: 1
-    showGPU: 0
+    showGPU: 1
     showBatches: 0
     showTriangles: 0
     backgroundColor: {r: 0, g: 0, b: 0, a: 0.7}
@@ -7945,7 +7945,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   toggleKey: <Keyboard>/f1
   resetStatsKey: <Keyboard>/f2
-  enableTouchToggle: 1
+  enableTouchToggle: 0
   touchCount: 3
   enableShakeToReset: 1
   shakeThreshold: 2
@@ -9323,7 +9323,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 540, y: -1158}
-  m_SizeDelta: {x: 860, y: 736}
+  m_SizeDelta: {x: 860, y: 1113.3936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522887981
 MonoBehaviour:
@@ -10371,8 +10371,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 429.02798, y: -590.84296}
-  m_SizeDelta: {x: 800, y: 18.8209}
+  m_AnchoredPosition: {x: 429.02798, y: -789.54175}
+  m_SizeDelta: {x: 800, y: 516.1123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731476865
 MonoBehaviour:
@@ -10459,7 +10459,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 16.379425, z: 0, w: 74.26776}
+  m_margin: {x: 10.3602295, y: 16.379341, z: 16.576538, w: 74.26776}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

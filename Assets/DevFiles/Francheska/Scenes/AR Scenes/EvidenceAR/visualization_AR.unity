@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 933212638}
   mHiddenRoot: {fileID: 0}
-  mTargetName: uv_light
+  mTargetName: 5_light
   mDatasetName: Vuforia/crimeXperienceAR.xml
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: uv_light
+  mTrackableName: 5_light
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1

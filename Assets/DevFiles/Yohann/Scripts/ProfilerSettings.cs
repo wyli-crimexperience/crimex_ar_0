@@ -6,8 +6,8 @@ public class ProfilerSettings
 {
     [Header("Performance")]
     public int targetFrameRate = 120; // More realistic for Android
-    public bool disableVSync = false; // Usually better enabled on mobile
-    public bool enableProfiler = true;
+    public bool disableVSync = true; // Usually better enabled on mobile
+    public bool enableProfiler = false;
 
     [Header("Display - Optimized for Mobile")]
     public bool showFPS = true;

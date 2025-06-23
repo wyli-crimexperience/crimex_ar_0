@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
-    <ImageTarget name="pushpull_tools" size="1.000000 1.000000" />
-    <ImageTarget name="striking_tools" size="1.000000 1.000000" />
-    <ImageTarget name="rotation_tools" size="1.000000 1.000000" />
-    <ImageTarget name="cutting_tools" size="1.000000 1.000000" />
-    <ImageTarget name="prying_tools" size="1.000000 1.000000" />
-    <ImageTarget name="camera" size="1.000000 1.000000" />
-    <ImageTarget name="volcano_print_finger" size="1.000000 1.000000" />
-    <ImageTarget name="uv_light" size="1.000000 1.000000" />
-    <ImageTarget name="polygraph" size="1.000000 1.000000" />
-    <ImageTarget name="police_line" size="1.000000 1.000000" />
-    <ImageTarget name="microscope" size="1.000000 1.000000" />
-    <ImageTarget name="measurement" size="1.000000 1.000000" />
-    <ImageTarget name="magnetic_brush" size="1.000000 1.000000" />
-    <ImageTarget name="fire_safety" size="1.000000 1.000000" />
-    <ImageTarget name="fingerbrush" size="1.000000 1.000000" />
-    <ImageTarget name="fiberbrush" size="1.000000 1.000000" />
-    <ImageTarget name="featherbrush" size="1.000000 1.000000" />
-    <ImageTarget name="extinguisher" size="1.000000 1.000000" />
-    <ImageTarget name="evidence_kit" size="2.000000 2.000000" />
-    <ImageTarget name="bcm" size="2.000000 2.000000" />
+    <ImageTarget name="23_police_line_tape" size="1.000000 1.000000" />
+    <ImageTarget name="22_polygraph" size="1.000000 1.000000" />
+    <ImageTarget name="21_cutting_tools" size="1.000000 1.000000" />
+    <ImageTarget name="20_striking_tools" size="1.000000 1.000000" />
+    <ImageTarget name="19_prying_tools" size="1.000000 1.000000" />
+    <ImageTarget name="18_push_pooling_tools" size="1.000000 1.000000" />
+    <ImageTarget name="17_rotation_tools" size="1.000000 1.000000" />
+    <ImageTarget name="16_fire_extinguisher" size="1.000000 1.000000" />
+    <ImageTarget name="15_fire_protection" size="1.000000 1.000000" />
+    <ImageTarget name="14_fingerprint_brush" size="1.000000 1.000000" />
+    <ImageTarget name="13_fingerprint_powder" size="1.000000 1.000000" />
+    <ImageTarget name="12_fiber_brush" size="1.000000 1.000000" />
+    <ImageTarget name="11_feather_brush" size="1.000000 1.000000" />
+    <ImageTarget name="10_magnetic_brush" size="1.000000 1.000000" />
+    <ImageTarget name="9_bcm" size="2.000000 2.000000" />
+    <ImageTarget name="8_plm" size="1.000000 1.000000" />
+    <ImageTarget name="7_markers" size="1.000000 1.000000" />
+    <ImageTarget name="6_collection" size="1.000000 1.000000" />
+    <ImageTarget name="5_light" size="1.000000 1.000000" />
+    <ImageTarget name="4_measurement" size="1.000000 1.000000" />
+    <ImageTarget name="3_packing_transport" size="1.000000 1.000000" />
+    <ImageTarget name="2_alt_light" size="1.000000 1.000000" />
+    <ImageTarget name="1_dslr" size="1.000000 1.000000" />
   </Tracking>
 </QCARConfig>

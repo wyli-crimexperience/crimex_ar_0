@@ -33,7 +33,7 @@ public class ProfilerOverlay : MonoBehaviour
     private InputAction resetStatsAction;
 
     private PerformanceMetrics metrics = new PerformanceMetrics();
-    private bool showOverlay = true;
+    private bool showOverlay = false;
     private bool isInitialized = true;
 
     // Performance tracking

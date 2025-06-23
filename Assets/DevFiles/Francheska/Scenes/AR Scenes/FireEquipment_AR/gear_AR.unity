@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 933212638}
   mHiddenRoot: {fileID: 0}
-  mTargetName: fire_safety
+  mTargetName: 15_fire_protection
   mDatasetName: Vuforia/crimeXperienceAR.xml
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: fire_safety
+  mTrackableName: 15_fire_protection
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1

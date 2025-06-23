@@ -2279,7 +2279,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: striking_tools
+  mTrackableName: 20_striking_tools
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/crimeXperienceAR.xml
   mAspectRatio: 1
@@ -2342,7 +2342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 933212638}
   mHiddenRoot: {fileID: 0}
-  mTargetName: striking_tools
+  mTargetName: 20_striking_tools
   mDatasetName: Vuforia/crimeXperienceAR.xml
   mCastedBehaviour: {fileID: 933212638}
   mMeshFilter: {fileID: 0}

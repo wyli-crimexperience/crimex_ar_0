@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4545455002791778995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984113306524992514}
+  - component: {fileID: 882565483575917335}
+  m_Layer: 0
+  m_Name: UIAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984113306524992514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545455002791778995}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -309.29593, y: -269.0365, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882565483575917335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545455002791778995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc979ea47e302f49905a9a8d78a7778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePoolSize: 5
+  buttonPress:
+    name: ButtonPressed
+    clips:
+    - {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  buttonHover:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  objectSelect:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  objectDeselect:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  objectRotate:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  objectScale:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  menuOpen:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  menuClose:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  error:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  success:
+    name: 
+    clips: []
+    volume: 1
+    pitch: 1
+    pitchVariation: 0.1
+  uiAudioMixerGroup: {fileID: 24300002, guid: c3888a7ea629329499ee0fcd4ec74ed8, type: 2}
+  masterUIVolume: 1
+  enableHapticFeedback: 1
+  rotationSoundInterval: 15

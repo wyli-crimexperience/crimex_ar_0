@@ -478,6 +478,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToMicroscopyCategory
@@ -725,7 +737,11 @@ MonoBehaviour:
   confirmationPanel: {fileID: 1786483715}
   yesButton: {fileID: 575182435}
   noButton: {fileID: 1415786618}
+  loadingPanel: {fileID: 0}
+  loadingText: {fileID: 0}
   loginSceneName: LogInPage
+  requireEmailVerification: 1
+  logoutDelay: 0.5
 --- !u!1 &109972669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,12 +1733,13 @@ RectTransform:
   m_Children:
   - {fileID: 825638232}
   - {fileID: 1398631421}
+  - {fileID: 1786483716}
+  - {fileID: 1858615887}
   - {fileID: 107782683}
   - {fileID: 1714448936}
   - {fileID: 456287712}
   - {fileID: 2110657921}
-  - {fileID: 1786483716}
-  - {fileID: 1858615887}
+  - {fileID: 325722423}
   m_Father: {fileID: 1112334587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2375,6 +2392,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322885036}
   m_CullTransparentMesh: 1
+--- !u!4 &325722423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1642845673625799546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &325722424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 882565483575917335, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1642845673625799546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc979ea47e302f49905a9a8d78a7778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &334778445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,6 +3482,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToFireEquipmentCategory
@@ -4562,6 +4609,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToEvidenceKitCategory
@@ -5713,6 +5772,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToFingerprintCategory
@@ -7447,14 +7518,14 @@ RectTransform:
   - {fileID: 865331489}
   - {fileID: 256847853}
   - {fileID: 1169935031}
-  - {fileID: 6453334}
   - {fileID: 1660341408}
+  - {fileID: 6453334}
   - {fileID: 16407382}
   m_Father: {fileID: 825638232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -676.17}
+  m_AnchoredPosition: {x: 0, y: -479.40305}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663096608
@@ -7878,7 +7949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -135, y: -289.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714448937
@@ -8905,6 +8976,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToPhotographyCategory
@@ -9540,7 +9623,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110657920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9549,7 +9632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -135, y: -289.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110657922
@@ -9857,6 +9940,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 325722424}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToSurveillanceCategory
@@ -9907,6 +10002,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141650825}
   m_CullTransparentMesh: 1
+--- !u!1001 &1642845673625799546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 210843690}
+    m_Modifications:
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -309.29593
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -269.0365
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545455002791778995, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_Name
+      value: UIAudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a17bd65ece7a20c46b10c690c04aa1f2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

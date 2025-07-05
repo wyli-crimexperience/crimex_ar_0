@@ -3,7 +3,17 @@ guid: fa1ca8beb4c9dc64e838c0a663c5a326
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: face_shield
+    second: {fileID: 2100000, guid: 783569df0e0ed37448367e60a07f0182, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: firefighter_helmet
+    second: {fileID: 2100000, guid: de1b7087ceb26654f967c841e20f6072, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -2351,6 +2351,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 402209258}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &261902250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,6 +3002,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369929843}
   m_CullTransparentMesh: 1
+--- !u!114 &402209258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 882565483575917335, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1133670108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc979ea47e302f49905a9a8d78a7778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405339371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +3958,34 @@ MonoBehaviour:
   - {fileID: 62170}
   paddingOffset: 50
   animationDuration: 0.3
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  keyboardDetectionDelay: 0.15
+  enableDebugLogs: 0
+  androidKeyboardRatio: 0.4
+  iosKeyboardRatio: 0.35
 --- !u!1 &831263835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5448,34 @@ MonoBehaviour:
   - {fileID: 894086524}
   paddingOffset: 50
   animationDuration: 0.3
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  keyboardDetectionDelay: 0.15
+  enableDebugLogs: 0
+  androidKeyboardRatio: 0.4
+  iosKeyboardRatio: 0.35
 --- !u!1 &1009507076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6110,6 +6190,74 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!1001 &1133670108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -309.29593
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -269.0365
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545455002791778995, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+        type: 3}
+      propertyPath: m_Name
+      value: UIAudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a17bd65ece7a20c46b10c690c04aa1f2, type: 3}
 --- !u!1 &1136680007
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,6 +8448,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 402209258}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1902100882}
         m_TargetAssemblyTypeName: EmailPassLogin, Assembly-CSharp
         m_MethodName: SignUp
@@ -10180,6 +10340,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 882565483575917335, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+          type: 3}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1672916223
 GameObject:
   m_ObjectHideFlags: 0
@@ -12519,6 +12692,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 882565483575917335, guid: a17bd65ece7a20c46b10c690c04aa1f2,
+          type: 3}
+        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 543179846}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToMainMenu
@@ -13616,3 +13802,4 @@ SceneRoots:
   - {fileID: 1902100883}
   - {fileID: 1310359396}
   - {fileID: 1825437527}
+  - {fileID: 1133670108}

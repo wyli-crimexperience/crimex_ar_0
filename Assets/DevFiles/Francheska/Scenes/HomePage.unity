@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 65359182}
   - component: {fileID: 65359181}
   - component: {fileID: 65359180}
+  - component: {fileID: 65359183}
   m_Layer: 5
   m_Name: microscopyButton
   m_TagString: Untagged
@@ -478,18 +479,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToMicroscopyCategory
@@ -540,6 +529,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65359178}
   m_CullTransparentMesh: 1
+--- !u!114 &65359183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65359178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &78248285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1740,6 @@ RectTransform:
   - {fileID: 1714448936}
   - {fileID: 456287712}
   - {fileID: 2110657921}
-  - {fileID: 325722423}
   m_Father: {fileID: 1112334587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2392,24 +2392,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322885036}
   m_CullTransparentMesh: 1
---- !u!4 &325722423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1642845673625799546}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &325722424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 882565483575917335, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1642845673625799546}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc979ea47e302f49905a9a8d78a7778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &334778445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,6 +3393,7 @@ GameObject:
   - component: {fileID: 613078211}
   - component: {fileID: 613078210}
   - component: {fileID: 613078209}
+  - component: {fileID: 613078212}
   m_Layer: 5
   m_Name: fireequipmentButton
   m_TagString: Untagged
@@ -3482,18 +3465,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToFireEquipmentCategory
@@ -3544,6 +3515,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613078207}
   m_CullTransparentMesh: 1
+--- !u!114 &613078212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613078207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &646143739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4521,7 @@ GameObject:
   - component: {fileID: 798751133}
   - component: {fileID: 798751132}
   - component: {fileID: 798751131}
+  - component: {fileID: 798751134}
   m_Layer: 5
   m_Name: evidenceButton
   m_TagString: Untagged
@@ -4609,18 +4593,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToEvidenceKitCategory
@@ -4671,6 +4643,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798751129}
   m_CullTransparentMesh: 1
+--- !u!114 &798751134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798751129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825638231
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,18 +5756,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToFingerprintCategory
@@ -8905,6 +8877,7 @@ GameObject:
   - component: {fileID: 1977652636}
   - component: {fileID: 1977652635}
   - component: {fileID: 1977652634}
+  - component: {fileID: 1977652637}
   m_Layer: 5
   m_Name: photographyButton
   m_TagString: Untagged
@@ -8976,18 +8949,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToPhotographyCategory
@@ -9038,6 +8999,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977652632}
   m_CullTransparentMesh: 1
+--- !u!114 &1977652637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977652632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001255206
 GameObject:
   m_ObjectHideFlags: 0
@@ -9869,6 +9842,7 @@ GameObject:
   - component: {fileID: 2141650829}
   - component: {fileID: 2141650828}
   - component: {fileID: 2141650827}
+  - component: {fileID: 2141650830}
   m_Layer: 5
   m_Name: surveillanceButton
   m_TagString: Untagged
@@ -9940,18 +9914,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325722424}
-        m_TargetAssemblyTypeName: UIAudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1398631422}
         m_TargetAssemblyTypeName: NavigatorManager, Assembly-CSharp
         m_MethodName: GoToSurveillanceCategory
@@ -10002,74 +9964,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141650825}
   m_CullTransparentMesh: 1
---- !u!1001 &1642845673625799546
-PrefabInstance:
+--- !u!114 &2141650830
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 210843690}
-    m_Modifications:
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -309.29593
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -269.0365
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984113306524992514, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545455002791778995, guid: a17bd65ece7a20c46b10c690c04aa1f2,
-        type: 3}
-      propertyPath: m_Name
-      value: UIAudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a17bd65ece7a20c46b10c690c04aa1f2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141650825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -161,6 +161,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DevFiles/Francheska/Scenes/AR Scenes/FireEquipment_AR/strikingtools_AR.unity
     guid: 5d807244d82071742bc7d7656b4ca690
+  - enabled: 1
+    path: Assets/DevFiles/Yohann/Scene/SettingsPage.unity
+    guid: 145fc9a093848574c91bd545d252ca05
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

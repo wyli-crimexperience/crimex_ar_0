@@ -432,7 +432,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Main Dial
-  modelDescription: Description of the model part
+  modelDescription: A cogwheel situated on the front part of the camera that allows
+    you to adjust aperture, shutter speed, exposure compensation, and other parameters.
 --- !u!1 &48770132
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +539,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Mode Dial
-  modelDescription: Description of the model part
+  modelDescription: A dial for selecting shooting  modes, including manual,  automatic,
+    and specialty modes,  with clear labels.
 --- !u!114 &119147626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +597,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Power Switch
-  modelDescription: Description of the model part
+  modelDescription: A switch for turning the camera  on and off
 --- !u!1 &203543580
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +793,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: AF Lock
-  modelDescription: Description of the model part
+  modelDescription: ' It''s a feature on cameras that allows you to freeze the autofocus.'
 --- !u!114 &325966237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +850,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Lens
-  modelDescription: Description of the model part
+  modelDescription: A detachable lens that simulates  professional camera optics, 
+    featuring detailed glass  elements and focus rings.
 --- !u!1 &350062096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1204,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Shutter Button
-  modelDescription: Description of the model part
+  modelDescription: A shutter button located on the  top of the camera, designed 
+    with a responsive look for  capturing images.
 --- !u!114 &569342874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,8 +1261,8 @@ MonoBehaviour:
   descriptionText: {fileID: 22782324}
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
-  modelTitle: ' Quick Control Dial'
-  modelDescription: Description of the model part
+  modelTitle: Power Switch
+  modelDescription: A switch for turning the camera  on and off
 --- !u!114 &579012455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1319,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Lens Mount
-  modelDescription: Description of the model part
+  modelDescription: Where you mount the lens of the camera
 --- !u!114 &581778363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,7 +1376,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Flash
-  modelDescription: Description of the model part
+  modelDescription: A pop-up flash integrated into  the camera, designed to provide 
+    additional lighting in low-light  settings
 --- !u!1 &597590314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1967,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: AF Button
-  modelDescription: Description of the model part
+  modelDescription: A dedicated button that initiates and controls the camera's autofocus
+    system.
 --- !u!114 &615905196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,7 +2229,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Main Button
-  modelDescription: Description of the model part
+  modelDescription: "A button that opens the  camera\u2019s settings menu,  positioned
+    for intuitive access  on the back panel"
 --- !u!114 &786468700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2280,7 +2287,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Multi Controller
-  modelDescription: Description of the model part
+  modelDescription: Allows users to quickly and efficiently select different autofocus
+    points, navigate menus, and make other adjustments.
 --- !u!114 &839600120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,7 +2345,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Viewport
-  modelDescription: Description of the model part
+  modelDescription: An optical or electronic viewfinder  for framing shots, featuring
+    a  realistic eyepiece and  surrounding frame.
 --- !u!114 &862952451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,7 +2403,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Cross Keys
-  modelDescription: Description of the model part
+  modelDescription: It is used to navigate menus, select options, and control various
+    camera settings
 --- !u!1 &933212635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,7 +2600,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Lens Release
-  modelDescription: Description of the model part
+  modelDescription: Ejects the lens out of the mount
 --- !u!1 &1076103479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9007130297318839484, guid: c89b2242be9f4f84289ce0456169364b,
@@ -2803,7 +2813,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Focus Mode Switch
-  modelDescription: Description of the model part
+  modelDescription: Changes focus mode from Manual Focus or Auto Focus
 --- !u!114 &1076103508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,8 +2869,9 @@ MonoBehaviour:
   descriptionText: {fileID: 22782324}
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
-  modelTitle: Battery / SD Card Lid
-  modelDescription: Description of the model part
+  modelTitle: Battery / SD Card Slot
+  modelDescription: A compartment for inserting  memory cards and batteries,  featuring
+    a hinged cover with  realistic textures.
 --- !u!1 &1208808088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,7 +3151,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Strap mount
-  modelDescription: Description of the model part
+  modelDescription: a designated attachment point  designed to securely fasten a
+    camera strap.
 --- !u!114 &1403657569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3197,7 +3209,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Info Button
-  modelDescription: Description of the model part
+  modelDescription: A button that displays shooting  information and camera settings 
+    on the LCD screen for quick  reference.
 --- !u!1 &1427656486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3370,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Zoom Ring
-  modelDescription: Description of the model part
+  modelDescription: The ring on the lens used to  adjust the zoom level, with  realistic
+    markings for focal  lengths.
 --- !u!114 &1572374507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,7 +3389,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Battery
-  modelDescription: Description of the model part
+  modelDescription: Powers the Device
 --- !u!114 &1601286393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3432,7 +3446,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Focus Ring
-  modelDescription: Description of the model part
+  modelDescription: A ring on the lens for manual  focus adjustments, designed  with
+    a textured grip for realistic  simulation.
 --- !u!114 &1637058243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,7 +3504,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Playback Button
-  modelDescription: Description of the model part
+  modelDescription: Used to access and review images and videos that have already
+    been captured.
 --- !u!1 &1667528151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,7 +3640,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Horse Shoe
-  modelDescription: Description of the model part
+  modelDescription: A mount for attaching external  accessories like flashes or microphones,
+    located on top of  the camera body.
 --- !u!1 &1803353038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,8 +3952,9 @@ MonoBehaviour:
   descriptionText: {fileID: 22782324}
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
-  modelTitle: Screen
-  modelDescription: Description of the model part
+  modelTitle: LCD Monitor
+  modelDescription: A display screen for reviewing  images, videos, and settings, 
+    designed with realistic textures  and screen reflections
 --- !u!114 &1961560822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3993,7 +4011,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Multi Function Button
-  modelDescription: Description of the model part
+  modelDescription: A customizable button that allows quick access to frequently
+    used camera settings
 --- !u!114 &2043588534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4050,7 +4069,8 @@ MonoBehaviour:
   hudPanel: {fileID: 1816829853}
   closeButton: {fileID: 6835886}
   modelTitle: Movie Button
-  modelDescription: Description of the model part
+  modelDescription: A dedicated button that allows you to quickly and easily switch
+    the camera into movie recording mode and start/stop recording video.
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

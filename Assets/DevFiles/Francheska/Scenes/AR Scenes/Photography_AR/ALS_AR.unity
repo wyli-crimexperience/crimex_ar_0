@@ -801,6 +801,127 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &454648847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454648848}
+  - component: {fileID: 454648850}
+  - component: {fileID: 454648849}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454648848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454648847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.70991623, y: -0, z: -0, w: 0.7042861}
+  m_LocalPosition: {x: 0, y: -0.025, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 999427188}
+  m_LocalEulerAnglesHint: {x: 90.45599, y: 0, z: 0}
+--- !u!114 &454648849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454648847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &454648850
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454648847}
+  m_Enabled: 1
+  serializedVersion: 11
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5
+  m_Range: 10
+  m_SpotAngle: 30.000002
+  m_InnerSpotAngle: 30.000002
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 2
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &518027640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,11 +1924,15 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 418ff78430110004083738b0ff864f0e,
         type: 3}
       propertyPath: m_Name
-      value: UV Light
+      value: Flashlight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 418ff78430110004083738b0ff864f0e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 454648848}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 418ff78430110004083738b0ff864f0e,
         type: 3}
@@ -1900,6 +2025,12 @@ MonoBehaviour:
   touchDeadZone: 5
   pinchDeadZone: 10
   enableDebugLogs: 1
+--- !u!23 &999427191 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 418ff78430110004083738b0ff864f0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 999427187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1036667252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,17 +2312,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1383962670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b63999f70d1844ab60c364f90761d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5867f103c9b9776489b46f77d3025f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelDropdown: {fileID: 329563769}
-  models:
-  - {fileID: 999427189}
-  customModelNames: []
-  targetObserver: {fileID: 0}
-  hideModelsWhenTargetLost: 1
-  rememberLastSelection: 1
-  transitionDelay: 0.1
+  optionDropdown: {fileID: 329563769}
+  targetRenderer: {fileID: 999427191}
+  customNames:
+  - Flashlight
+  - UV Light 365nm
+  - UV Light 395nm
+  - Blue Light
+  - Cyan Light
+  - Green Light
+  - Orange Light
+  - Red Light
+  - White Light
+  baseTextures:
+  - {fileID: 2800000, guid: 09dbd96fe803a7e42805781afcc9b827, type: 3}
+  - {fileID: 2800000, guid: 4a944ee6ee759494eaa374b1a2a9908f, type: 3}
+  - {fileID: 2800000, guid: dcac851588027e543800844ac2a04658, type: 3}
+  - {fileID: 2800000, guid: d925b7dff8f27f34c92755bfbdbbab97, type: 3}
+  - {fileID: 2800000, guid: a8a3b6cb59bba144dbfee5e30ca4dab3, type: 3}
+  - {fileID: 2800000, guid: c7f5b3c1b4de5ea49925bce6975095c1, type: 3}
+  - {fileID: 2800000, guid: 034189780ec815243b18d4d0bd72fab9, type: 3}
+  - {fileID: 2800000, guid: c68216bf457c72b44be2ca9ca9be311d, type: 3}
+  - {fileID: 2800000, guid: 56c7581cc0f39a94d93098c5d8491883, type: 3}
+  spotlights:
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  - {fileID: 454648850}
+  targetObserver: {fileID: 933212638}
+  hideModelWhenTargetLost: 1
 --- !u!1 &1427656486
 GameObject:
   m_ObjectHideFlags: 0

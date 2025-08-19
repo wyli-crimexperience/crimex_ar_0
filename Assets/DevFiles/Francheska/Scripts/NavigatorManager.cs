@@ -95,5 +95,8 @@ public class NavigatorManager : MonoBehaviour
     {
         LoadScene("HomePage");
     }
-
+    public void GoToSettings()
+    {
+        LoadScene("SettingsPage");
+    }
 }

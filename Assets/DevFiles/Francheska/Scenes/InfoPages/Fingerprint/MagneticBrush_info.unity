@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 917385005}
   - component: {fileID: 917385004}
   - component: {fileID: 917385003}
+  - component: {fileID: 917385006}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -691,6 +692,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917385001}
   m_CullTransparentMesh: 1
+--- !u!114 &917385006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917385001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160927864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,9 +1243,8 @@ MonoBehaviour:
     structure. \n\r\n2. The brush is then used to develop the latent fingerprint.
     \n\r\n3. Excess powder can be released by demagnetizing the rod."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1403,9 +1415,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How does it work?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1669,6 +1680,7 @@ GameObject:
   - component: {fileID: 1726098575}
   - component: {fileID: 1726098574}
   - component: {fileID: 1726098573}
+  - component: {fileID: 1726098576}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1790,6 +1802,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726098571}
   m_CullTransparentMesh: 1
+--- !u!114 &1726098576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726098571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1848731145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,9 +1873,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Magnetic Brush
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1990,9 +2013,8 @@ MonoBehaviour:
     structure. \n\r\n2. The brush is then used to develop the latent fingerprint.
     \n\r\n3. Excess powder can be released by demagnetizing the rod."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2127,9 +2149,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What is a magnetic brush?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2264,9 +2285,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: View in AR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2432,9 +2452,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

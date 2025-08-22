@@ -36,7 +36,7 @@ public class UIAudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup uiAudioMixerGroup;
     [SerializeField][Range(0f, 1f)] private float masterUIVolume = 1f;
     [SerializeField] private bool enableHapticFeedback = true;
-    [SerializeField] private float minTimeBetweenSounds = 0.05f; // Prevent audio spam
+    [SerializeField] private float minTimeBetweenSounds = 0.05f;
 
     [Header("Rotation Audio Settings")]
     [SerializeField] private float rotationSoundInterval = 15f;
@@ -48,6 +48,11 @@ public class UIAudioManager : MonoBehaviour
 
     public static UIAudioManager Instance { get; private set; }
 
+    // Android vibrator
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private AndroidJavaObject vibrator;
+#endif
+
     private void Awake()
     {
         if (Instance == null)
@@ -55,6 +60,7 @@ public class UIAudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeAudioSources();
+            InitHaptics();
         }
         else
         {
@@ -72,7 +78,7 @@ public class UIAudioManager : MonoBehaviour
             audioSourceObject.transform.SetParent(transform);
 
             AudioSource audioSource = audioSourceObject.AddComponent<AudioSource>();
-            audioSource.spatialBlend = 0f; // 2D audio for UI
+            audioSource.spatialBlend = 0f;
             audioSource.playOnAwake = false;
             audioSource.outputAudioMixerGroup = uiAudioMixerGroup;
 
@@ -80,9 +86,19 @@ public class UIAudioManager : MonoBehaviour
         }
     }
 
+    private void InitHaptics()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+            vibrator = activity.Call<AndroidJavaObject>("getSystemService", "vibrator");
+        }
+#endif
+    }
+
     private AudioSource GetNextAudioSource()
     {
-        // Simple round-robin approach - more reliable than queue system
         AudioSource source = audioSourcePool[currentPoolIndex];
         currentPoolIndex = (currentPoolIndex + 1) % audioSourcePoolSize;
         return source;
@@ -90,103 +106,63 @@ public class UIAudioManager : MonoBehaviour
 
     private void PlayUISound(UIAudioClip uiClip, bool useHaptic = false, bool allowSpam = false)
     {
-        // Null checks
-        if (uiClip == null || uiClip.clips == null || uiClip.clips.Length == 0)
-        {
-            Debug.LogWarning("UIAudioManager: Trying to play null or empty audio clip");
-            return;
-        }
+        if (uiClip == null || uiClip.clips == null || uiClip.clips.Length == 0) return;
 
-        // Debouncing for button presses
-        if (!allowSpam && Time.time - lastButtonPressTime < minTimeBetweenSounds)
-        {
-            return;
-        }
+        if (!allowSpam && Time.time - lastButtonPressTime < minTimeBetweenSounds) return;
 
         AudioSource source = GetNextAudioSource();
 
-        // Stop any currently playing sound on this source
-        if (source.isPlaying)
-        {
-            source.Stop();
-        }
+        if (source.isPlaying) source.Stop();
 
-        // Get random clip for variation
         AudioClip clipToPlay = uiClip.clips[Random.Range(0, uiClip.clips.Length)];
+        if (clipToPlay == null) return;
 
-        // Validate clip
-        if (clipToPlay == null)
-        {
-            Debug.LogWarning("UIAudioManager: Selected audio clip is null");
-            return;
-        }
-
-        // Apply settings
         source.clip = clipToPlay;
         source.volume = uiClip.volume * masterUIVolume;
         source.pitch = uiClip.pitch + Random.Range(-uiClip.pitchVariation, uiClip.pitchVariation);
 
-        // Use PlayOneShot for UI sounds to avoid clip assignment issues
         source.PlayOneShot(clipToPlay, uiClip.volume * masterUIVolume);
 
-        // Handle haptic feedback
-        if (useHaptic && enableHapticFeedback)
-        {
-            TriggerHapticFeedback();
-        }
+        if (useHaptic && enableHapticFeedback) TriggerHapticFeedback();
 
         lastButtonPressTime = Time.time;
     }
 
     private void TriggerHapticFeedback()
     {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (vibrator != null)
+        {
+            // Simple short pulse (~30ms)
+            vibrator.Call("vibrate", 30L);
+        }
+#elif UNITY_IOS
         Handheld.Vibrate();
 #endif
     }
 
-    // Public methods for UI interactions
-    public void PlayButtonPress()
+    public void TriggerHapticPattern()
     {
-        PlayUISound(buttonPress, true);
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (vibrator != null)
+        {
+            // Pattern: delay 0ms, vibrate 40ms, pause 30ms, vibrate 40ms
+            long[] pattern = { 0, 40, 30, 40 };
+            vibrator.Call("vibrate", pattern, -1); // -1 means no repeat
+        }
+#endif
     }
 
-    public void PlayButtonHover()
-    {
-        PlayUISound(buttonHover, false, true); // Allow spam for hover
-    }
+    // === Public Methods ===
+    public void PlayButtonPress() => PlayUISound(buttonPress, true);
+    public void PlayButtonHover() => PlayUISound(buttonHover, false, true);
+    public void PlayObjectSelect() => PlayUISound(objectSelect, true);
+    public void PlayObjectDeselect() => PlayUISound(objectDeselect, false);
+    public void PlayMenuOpen() => PlayUISound(menuOpen, false);
+    public void PlayMenuClose() => PlayUISound(menuClose, false);
+    public void PlayError() => PlayUISound(error, true);
+    public void PlaySuccess() => PlayUISound(success, true);
 
-    public void PlayObjectSelect()
-    {
-        PlayUISound(objectSelect, true);
-    }
-
-    public void PlayObjectDeselect()
-    {
-        PlayUISound(objectDeselect, false);
-    }
-
-    public void PlayMenuOpen()
-    {
-        PlayUISound(menuOpen, false);
-    }
-
-    public void PlayMenuClose()
-    {
-        PlayUISound(menuClose, false);
-    }
-
-    public void PlayError()
-    {
-        PlayUISound(error, true);
-    }
-
-    public void PlaySuccess()
-    {
-        PlayUISound(success, true);
-    }
-
-    // Rotation audio with interval-based triggering
     public void StartRotation(float currentAngle)
     {
         lastRotationAngle = currentAngle;
@@ -196,9 +172,7 @@ public class UIAudioManager : MonoBehaviour
     public void UpdateRotation(float currentAngle)
     {
         if (!isRotating) return;
-
         float angleDifference = Mathf.Abs(currentAngle - lastRotationAngle);
-
         if (angleDifference >= rotationSoundInterval)
         {
             PlayUISound(objectRotate, false, true);
@@ -206,25 +180,16 @@ public class UIAudioManager : MonoBehaviour
         }
     }
 
-    public void StopRotation()
-    {
-        isRotating = false;
-    }
+    public void StopRotation() => isRotating = false;
 
     public void PlayScaleSound(float scaleMultiplier)
     {
-        if (objectScale == null || objectScale.clips == null || objectScale.clips.Length == 0)
-            return;
+        if (objectScale == null || objectScale.clips == null || objectScale.clips.Length == 0) return;
 
         AudioSource source = GetNextAudioSource();
-
-        if (source.isPlaying)
-        {
-            source.Stop();
-        }
+        if (source.isPlaying) source.Stop();
 
         AudioClip clipToPlay = objectScale.clips[Random.Range(0, objectScale.clips.Length)];
-
         if (clipToPlay == null) return;
 
         float pitchModifier = Mathf.Clamp(scaleMultiplier, 0.5f, 2f);
@@ -234,29 +199,15 @@ public class UIAudioManager : MonoBehaviour
         source.pitch = finalPitch;
     }
 
-    // Volume control
-    public void SetMasterUIVolume(float volume)
-    {
-        masterUIVolume = Mathf.Clamp01(volume);
-    }
-
-    public void SetHapticFeedback(bool enabled)
-    {
-        enableHapticFeedback = enabled;
-    }
+    public void SetMasterUIVolume(float volume) => masterUIVolume = Mathf.Clamp01(volume);
+    public void SetHapticFeedback(bool enabled) => enableHapticFeedback = enabled;
 
     public void StopAllUISounds()
     {
         foreach (AudioSource source in audioSourcePool)
-        {
-            if (source.isPlaying)
-            {
-                source.Stop();
-            }
-        }
+            if (source.isPlaying) source.Stop();
     }
 
-    // Debug method to test if audio is working
     public void TestButtonPress()
     {
         Debug.Log("Testing button press audio...");

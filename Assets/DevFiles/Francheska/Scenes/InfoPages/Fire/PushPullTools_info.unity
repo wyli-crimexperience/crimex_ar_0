@@ -384,9 +384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A hook used to pull down ceilings during firefighting operations.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -613,9 +612,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -900,9 +898,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A specialized hook used for forcible entry and ventilation.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1218,9 +1215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A specialized tool used for forcible entry, particularly on doors and windows.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1515,9 +1511,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1654,9 +1649,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1842,9 +1836,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1981,9 +1974,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2360,9 +2352,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A hook used for pulling down drywall during firefighting or rescue operations.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2691,9 +2682,8 @@ MonoBehaviour:
   m_text: A long pole with a pointed metal head, used for pulling down ceilings and
     walls.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3140,9 +3130,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A specialized hook used for forcible entry and ventilation.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3484,9 +3473,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A hook designed for various firefighting and rescue tasks.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3750,6 +3738,7 @@ GameObject:
   - component: {fileID: 1726098575}
   - component: {fileID: 1726098574}
   - component: {fileID: 1726098573}
+  - component: {fileID: 1726098576}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3871,6 +3860,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726098571}
   m_CullTransparentMesh: 1
+--- !u!114 &1726098576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726098571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1848731145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,9 +3933,8 @@ MonoBehaviour:
 
     Pulling Tools'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4071,9 +4071,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4257,6 +4256,7 @@ GameObject:
   - component: {fileID: 1902061905}
   - component: {fileID: 1902061904}
   - component: {fileID: 1902061903}
+  - component: {fileID: 1902061906}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4377,6 +4377,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902061901}
   m_CullTransparentMesh: 1
+--- !u!114 &1902061906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902061901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918943644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,9 +4449,8 @@ MonoBehaviour:
   m_text: Used for pusing or pulling, these tools are to extend the reach of the
     firefighter as well as increase the power that can be exerted upon an object.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4574,9 +4585,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: View in AR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4838,9 +4848,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!1 &1998840614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,9 +4918,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

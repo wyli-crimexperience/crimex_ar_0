@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 37961133}
   - component: {fileID: 37961132}
   - component: {fileID: 37961131}
+  - component: {fileID: 37961134}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -762,6 +763,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37961129}
   m_CullTransparentMesh: 1
+--- !u!114 &37961134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37961129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &43631759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1890,7 @@ GameObject:
   - component: {fileID: 316031648}
   - component: {fileID: 316031647}
   - component: {fileID: 316031646}
+  - component: {fileID: 316031649}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1997,6 +2011,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316031644}
   m_CullTransparentMesh: 1
+--- !u!114 &316031649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316031644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &347110372
 GameObject:
   m_ObjectHideFlags: 0
@@ -6746,9 +6772,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!114 &867447290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7031,9 +7063,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!114 &878881808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7847,9 +7885,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!114 &1001029137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17880,9 +17924,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!1 &1971895444
 GameObject:
   m_ObjectHideFlags: 0
@@ -20214,9 +20264,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db82bb0711c1d54c9f8b789dd572527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryColor: {r: 0.94509804, g: 0.9607843, b: 0.9764706, a: 1}
-  secondaryColor: {r: 0.32156864, g: 0.42745098, b: 0.84705883, a: 1}
+  colorProfiles: []
   findTextInChildren: 1
+  includeInactive: 0
+  autoRefreshOnEnable: 1
+  refreshInterval: 0
+  enableDebugLogging: 0
+  logColorChanges: 1
+  cacheTextComponents: 1
+  maxTextComponents: 100
 --- !u!114 &2137182348
 MonoBehaviour:
   m_ObjectHideFlags: 0

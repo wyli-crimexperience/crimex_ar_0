@@ -2150,9 +2150,8 @@ MonoBehaviour:
     established during the control questions. The examiner looks for changes in respiration,
     cardiovascular activity, and electrodermal activity that may indicate deception.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2380,6 +2379,7 @@ GameObject:
   - component: {fileID: 1165937456}
   - component: {fileID: 1165937455}
   - component: {fileID: 1165937454}
+  - component: {fileID: 1165937458}
   m_Layer: 5
   m_Name: partsObject
   m_TagString: Untagged
@@ -2522,6 +2522,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165937452}
   m_CullTransparentMesh: 1
+--- !u!114 &1165937458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165937452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172009076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4507,7 @@ GameObject:
   - component: {fileID: 1726098575}
   - component: {fileID: 1726098574}
   - component: {fileID: 1726098573}
+  - component: {fileID: 1726098576}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4616,6 +4629,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726098571}
   m_CullTransparentMesh: 1
+--- !u!114 &1726098576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726098571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809981094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4724,9 +4749,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Polygraph
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4953,6 +4977,7 @@ GameObject:
   - component: {fileID: 1910259033}
   - component: {fileID: 1910259032}
   - component: {fileID: 1910259031}
+  - component: {fileID: 1910259034}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5073,6 +5098,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910259029}
   m_CullTransparentMesh: 1
+--- !u!114 &1910259034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910259029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918943644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,9 +5180,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5280,9 +5316,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What is a polygraph?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5417,9 +5452,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: View in AR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6059,9 +6093,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <color=#0F172A><font-weight="500">Parts for the polygraph</color></font-weight>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6196,9 +6229,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How it works
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

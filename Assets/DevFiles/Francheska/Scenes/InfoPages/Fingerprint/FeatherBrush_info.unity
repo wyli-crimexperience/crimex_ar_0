@@ -1247,6 +1247,7 @@ GameObject:
   - component: {fileID: 1726098575}
   - component: {fileID: 1726098574}
   - component: {fileID: 1726098573}
+  - component: {fileID: 1726098576}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1368,6 +1369,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726098571}
   m_CullTransparentMesh: 1
+--- !u!114 &1726098576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726098571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1754595838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1393,7 @@ GameObject:
   - component: {fileID: 1754595842}
   - component: {fileID: 1754595841}
   - component: {fileID: 1754595840}
+  - component: {fileID: 1754595843}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1500,6 +1514,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754595838}
   m_CullTransparentMesh: 1
+--- !u!114 &1754595843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754595838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b19fd1c98ad36478e3e18193bbf849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1848731145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,9 +1585,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Feather Brush
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1701,9 +1726,8 @@ MonoBehaviour:
     does not work with aluminum powder</color>\n \nProvide caution when using the
     feather brush since it may irritate eyes, skin and cause respiratory health problems."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1838,9 +1862,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What is a feather brush?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1975,9 +1998,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: View in AR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70996bcc229be7e4b88040b580cc0205, type: 2}
-  m_sharedMaterial: {fileID: 4947123111331579767, guid: 70996bcc229be7e4b88040b580cc0205,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -7,11 +7,14 @@ public class SettingsManagerAR : MonoBehaviour
 {
     [Header("Audio Settings")]
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Toggle vibrationToggle; // NEW
 
     [Header("Graphics Settings (AR/Android)")]
     [SerializeField] private Slider renderScaleSlider; // 0.5 - 1.5 typical range
     [SerializeField] private TMP_Dropdown msaaDropdown; // Off / 2x / 4x
     [SerializeField] private Toggle arBackgroundToggle; // Optional
+
+    private bool vibrationEnabled = true;
 
     private void Start()
     {
@@ -22,6 +25,13 @@ public class SettingsManagerAR : MonoBehaviour
             AudioListener.volume = savedVolume;
             volumeSlider.value = savedVolume;
             volumeSlider.onValueChanged.AddListener(SetVolume);
+        }
+
+        if (vibrationToggle != null)
+        {
+            vibrationEnabled = PlayerPrefs.GetInt("VibrationEnabled", 1) == 1;
+            vibrationToggle.isOn = vibrationEnabled;
+            vibrationToggle.onValueChanged.AddListener(SetVibration);
         }
 
         // --- GRAPHICS ---
@@ -40,7 +50,7 @@ public class SettingsManagerAR : MonoBehaviour
 
             int savedMSAA = PlayerPrefs.GetInt("MSAA", 2); // default 4x
             QualitySettings.antiAliasing = savedMSAA;
-            msaaDropdown.value = savedMSAA switch { 0 => 0, 2 => 1, 4 => 2, _ => 2 };
+            msaaDropdown.value = savedMSAA switch { 0 => 0, 1 => 1, 2 => 2, _ => 2 };
             msaaDropdown.onValueChanged.AddListener(SetMSAA);
         }
 
@@ -60,6 +70,24 @@ public class SettingsManagerAR : MonoBehaviour
         PlayerPrefs.SetFloat("MainVolume", volume);
     }
 
+    public void SetVibration(bool enabled)
+    {
+        vibrationEnabled = enabled;
+        PlayerPrefs.SetInt("VibrationEnabled", enabled ? 1 : 0);
+    }
+
+    private void TriggerHapticFeedback()
+    {
+        if (!vibrationEnabled) return;
+
+#if UNITY_ANDROID
+        Handheld.Vibrate(); // simple short vibrate
+#elif UNITY_IOS
+        // On iOS, use Unity's default haptics (needs proper binding)
+        Handheld.Vibrate();
+#endif
+    }
+
     // --- GRAPHICS ---
     public void SetRenderScale(float scale)
     {
@@ -76,7 +104,6 @@ public class SettingsManagerAR : MonoBehaviour
 
     public void SetARBackground(bool enabled)
     {
-        // In ARFoundation, the ARCameraBackground component controls this
         var arBackground = Camera.main.GetComponent<UnityEngine.XR.ARFoundation.ARCameraBackground>();
         if (arBackground != null) arBackground.enabled = enabled;
 
@@ -89,5 +116,6 @@ public class SettingsManagerAR : MonoBehaviour
         SetRenderScale(1f);
         SetMSAA(2); // default 4x
         SetARBackground(true);
+        SetVibration(true);
     }
 }

@@ -113,10 +113,13 @@ public class TextureLightSwitcher : MonoBehaviour
 
         Material mat = targetRenderer.material;
 
-        // Swap base texture
-        mat.mainTexture = baseTextures[index];
+        // --- Swap Colormap (Albedo/BaseMap) ---
+        if (mat.HasProperty("_BaseMap")) // URP Lit
+            mat.SetTexture("_BaseMap", baseTextures[index]);
+        else if (mat.HasProperty("_MainTex")) // Built-in Standard
+            mat.SetTexture("_MainTex", baseTextures[index]);
 
-        // Handle spotlights
+        // --- Handle spotlights ---
         DisableAllLights();
 
         if (spotlights != null && index < spotlights.Length && spotlights[index] != null)

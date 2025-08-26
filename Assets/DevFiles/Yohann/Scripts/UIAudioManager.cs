@@ -89,11 +89,59 @@ public class UIAudioManager : MonoBehaviour
     private void InitHaptics()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+    using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+    {
+        AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+
+        // Try vibrator_manager (Android 12+)
+        vibrator = activity.Call<AndroidJavaObject>("getSystemService", "vibrator_manager");
+
+        if (vibrator == null)
         {
-            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+            // Fallback to legacy vibrator
             vibrator = activity.Call<AndroidJavaObject>("getSystemService", "vibrator");
         }
+
+        if (vibrator == null)
+        {
+            Debug.LogWarning("No vibrator service found. Falling back to Handheld.Vibrate().");
+        }
+    }
+#endif
+    }
+
+    private void TriggerHapticFeedback()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+    if (vibrator != null)
+    {
+        vibrator.Call("vibrate", 30L); // 30ms short pulse
+    }
+    else
+    {
+        Handheld.Vibrate(); // fallback
+    }
+#elif UNITY_IOS
+    Handheld.Vibrate(); // default on iOS
+#else
+        Handheld.Vibrate(); // fallback for other platforms
+#endif
+    }
+
+    public void TriggerHapticPattern()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+    if (vibrator != null)
+    {
+        long[] pattern = { 0, 40, 30, 40 };
+        vibrator.Call("vibrate", pattern, -1);
+    }
+    else
+    {
+        Handheld.Vibrate(); // fallback
+    }
+#else
+        Handheld.Vibrate(); // fallback
 #endif
     }
 
@@ -128,30 +176,6 @@ public class UIAudioManager : MonoBehaviour
         lastButtonPressTime = Time.time;
     }
 
-    private void TriggerHapticFeedback()
-    {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        if (vibrator != null)
-        {
-            // Simple short pulse (~30ms)
-            vibrator.Call("vibrate", 30L);
-        }
-#elif UNITY_IOS
-        Handheld.Vibrate();
-#endif
-    }
-
-    public void TriggerHapticPattern()
-    {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        if (vibrator != null)
-        {
-            // Pattern: delay 0ms, vibrate 40ms, pause 30ms, vibrate 40ms
-            long[] pattern = { 0, 40, 30, 40 };
-            vibrator.Call("vibrate", pattern, -1); // -1 means no repeat
-        }
-#endif
-    }
 
     // === Public Methods ===
     public void PlayButtonPress() => PlayUISound(buttonPress, true);

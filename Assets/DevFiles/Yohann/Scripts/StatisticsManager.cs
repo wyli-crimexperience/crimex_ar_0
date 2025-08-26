@@ -40,6 +40,9 @@ public class StatisticsManager : MonoBehaviour
     public TMP_Text totalLoginText;
     public TMP_Text memberSinceText;
 
+    [Header("Loading UI")] // NEW
+    [SerializeField] private GameObject loadingScreen; // NEW
+
     [Header("Debug Settings")]
     [SerializeField] private bool enableDebugLogging = false;
 
@@ -47,6 +50,28 @@ public class StatisticsManager : MonoBehaviour
     private FirebaseFirestore firestore;
     private const string COLLECTION_USERS = "users";
     private const string COLLECTION_CLASSES = "classes"; // Add classes collection
+
+    // NEW: simple reference counter for overlapping async operations
+    private int _pendingOps = 0; // NEW
+
+    // NEW: Helpers to show/hide the loading screen
+    private void BeginOp() // NEW
+    {
+        _pendingOps++;
+        UpdateLoadingUI();
+    }
+
+    private void EndOp() // NEW
+    {
+        _pendingOps = Mathf.Max(0, _pendingOps - 1);
+        UpdateLoadingUI();
+    }
+
+    private void UpdateLoadingUI() // NEW
+    {
+        if (loadingScreen != null)
+            loadingScreen.SetActive(_pendingOps > 0);
+    }
 
     [System.Serializable]
     public class UserData
@@ -83,6 +108,9 @@ public class StatisticsManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         firestore = FirebaseFirestore.DefaultInstance;
 
+        // Ensure loader is hidden on start
+        UpdateLoadingUI(); // NEW
+
         // Set default profile image immediately
         SetDefaultProfileImage();
 
@@ -108,29 +136,35 @@ public class StatisticsManager : MonoBehaviour
             return;
         }
 
+        BeginOp(); // NEW: start loading
+
         DocumentReference userDocRef = firestore.Collection(COLLECTION_USERS).Document(user.UserId);
         userDocRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
-            if (task.IsCompleted && task.Result.Exists)
+            try
             {
-                try
+                if (task.IsCompleted && task.Result.Exists)
                 {
                     Dictionary<string, object> userData = task.Result.ToDictionary();
                     DisplayUserInfo(userData);
-                    LoadAndDisplayEnrolledClasses(userData); // Changed to async method
+                    LoadAndDisplayEnrolledClasses(userData); // Triggers its own loading scope
                     DisplayUserStatistics(userData);
-                    LoadProfileImageFromData(userData); // Load profile image
+                    LoadProfileImageFromData(userData); // Optional; image load is not counted, but can be if desired
                 }
-                catch (Exception ex)
+                else
                 {
-                    Debug.LogError($"Error processing user data: {ex.Message}");
-                    DisplayErrorMessage("Error loading user information");
+                    Debug.LogWarning("Failed to retrieve user info or user document doesn't exist.");
+                    DisplayErrorMessage("User information not found");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Debug.LogWarning("Failed to retrieve user info or user document doesn't exist.");
-                DisplayErrorMessage("User information not found");
+                Debug.LogError($"Error processing user data: {ex.Message}");
+                DisplayErrorMessage("Error loading user information");
+            }
+            finally
+            {
+                EndOp(); // NEW: end loading
             }
         });
     }
@@ -138,14 +172,12 @@ public class StatisticsManager : MonoBehaviour
     private void LoadProfileImageFromData(Dictionary<string, object> userData)
     {
         string profileImageUrl = GetFieldValue(userData, "profileImageUrl", "");
-
         if (!string.IsNullOrEmpty(profileImageUrl))
         {
             StartCoroutine(LoadProfileImage(profileImageUrl));
         }
         else
         {
-            // Keep the default image if no URL is found
             if (enableDebugLogging)
                 Debug.Log("No profile image URL found, using default image");
         }
@@ -215,6 +247,7 @@ public class StatisticsManager : MonoBehaviour
 
     private System.Collections.IEnumerator FetchClassDetails(List<string> classIds)
     {
+        BeginOp(); // NEW: start loading for classes
         List<ClassInfo> classInfoList = new List<ClassInfo>();
         int completedRequests = 0;
 
@@ -241,7 +274,6 @@ public class StatisticsManager : MonoBehaviour
                 catch (Exception ex)
                 {
                     Debug.LogError($"Error processing class {classId}: {ex.Message}");
-                    // Add with fallback values
                     classInfoList.Add(new ClassInfo("Unknown Class", "Unknown Code", classId));
                 }
             }
@@ -249,7 +281,6 @@ public class StatisticsManager : MonoBehaviour
             {
                 if (enableDebugLogging)
                     Debug.LogWarning($"Class document {classId} not found");
-                // Add with fallback values
                 classInfoList.Add(new ClassInfo("Class Not Found", "Unknown Code", classId));
             }
 
@@ -261,6 +292,8 @@ public class StatisticsManager : MonoBehaviour
 
         // Display the results
         DisplayEnrolledClassesInfo(classInfoList);
+
+        EndOp(); // NEW: end loading for classes
     }
 
     private void DisplayEnrolledClassesInfo(List<ClassInfo> classInfoList)
@@ -365,7 +398,6 @@ public class StatisticsManager : MonoBehaviour
         }
 
         // Note: Total login count would require additional tracking in your database
-        // For now, we can show last login info
         if (totalLoginText != null)
         {
             string lastLogin = ConvertTimestamp(GetFieldValue(userData, "lastLogin"));
@@ -382,48 +414,57 @@ public class StatisticsManager : MonoBehaviour
             return;
         }
 
+        BeginOp(); // NEW: start loading logs
+
         // Updated to use new collection structure
         CollectionReference logsRef = firestore.Collection(COLLECTION_USERS).Document(user.UserId).Collection("LogsAR");
         logsRef.OrderByDescending("timestamp").GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
-            if (task.IsFaulted || task.IsCanceled)
+            try
             {
-                Debug.LogError("Failed to fetch user logs.");
-                DisplayLogError();
-                return;
-            }
-
-            // Clear existing log entries
-            if (historyContentParent != null)
-            {
-                foreach (Transform child in historyContentParent)
+                if (task.IsFaulted || task.IsCanceled)
                 {
-                    Destroy(child.gameObject);
+                    Debug.LogError("Failed to fetch user logs.");
+                    DisplayLogError();
+                    return;
+                }
+
+                // Clear existing log entries
+                if (historyContentParent != null)
+                {
+                    foreach (Transform child in historyContentParent)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+
+                if (task.Result.Documents.Count() == 0)
+                {
+                    DisplayNoLogsMessage();
+                    return;
+                }
+
+                foreach (DocumentSnapshot logDoc in task.Result.Documents)
+                {
+                    try
+                    {
+                        Dictionary<string, object> logData = logDoc.ToDictionary();
+                        CreateLogEntry(logData, logDoc.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Error processing log entry {logDoc.Id}: {ex.Message}");
+                    }
+                }
+
+                if (enableDebugLogging)
+                {
+                    Debug.Log($"Loaded {task.Result.Documents.Count()} log entries");
                 }
             }
-
-            if (task.Result.Documents.Count() == 0)
+            finally
             {
-                DisplayNoLogsMessage();
-                return;
-            }
-
-            foreach (DocumentSnapshot logDoc in task.Result.Documents)
-            {
-                try
-                {
-                    Dictionary<string, object> logData = logDoc.ToDictionary();
-                    CreateLogEntry(logData, logDoc.Id);
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"Error processing log entry {logDoc.Id}: {ex.Message}");
-                }
-            }
-
-            if (enableDebugLogging)
-            {
-                Debug.Log($"Loaded {task.Result.Documents.Count()} log entries");
+                EndOp(); // NEW: end loading logs
             }
         });
     }
@@ -453,61 +494,34 @@ public class StatisticsManager : MonoBehaviour
             Debug.Log($"Log Entry: {eventType} - Keys: {string.Join(", ", logData.Keys)}");
         }
 
-        // Determine context details based on eventType
         switch (eventType)
         {
             case "SceneLoaded":
                 if (logData.TryGetValue("sceneName", out var scene))
-                {
                     contextInfo = ": " + scene.ToString();
-                }
-                else
-                {
-                    if (enableDebugLogging)
-                        Debug.LogWarning($"Missing 'sceneName' in log {logId}. Keys: {string.Join(", ", logData.Keys)}");
-                }
                 break;
 
             case "ARSceneOpened":
                 if (logData.TryGetValue("sceneName", out scene))
-                {
                     contextInfo = ": " + scene.ToString();
-                }
-                else
-                {
-                    if (enableDebugLogging)
-                        Debug.LogWarning($"Missing 'sceneName' in log {logId}. Keys: {string.Join(", ", logData.Keys)}");
-                }
                 break;
 
             case "ButtonClick":
                 if (logData.TryGetValue("buttonName", out var button))
-                {
                     contextInfo = ": " + button.ToString();
-                }
-                else
-                {
-                    if (enableDebugLogging)
-                        Debug.LogWarning($"Missing 'buttonName' in log {logId}");
-                }
                 break;
 
             case "ClassEnrolled":
                 if (logData.TryGetValue("classCode", out var classCode))
-                {
                     contextInfo = ": " + classCode.ToString();
-                }
                 break;
 
             case "ClassUnenrolled":
                 if (logData.TryGetValue("classCode", out classCode))
-                {
                     contextInfo = ": " + classCode.ToString();
-                }
                 break;
 
             case "AppQuit":
-                // No additional context needed
                 break;
 
             default:
@@ -522,18 +536,14 @@ public class StatisticsManager : MonoBehaviour
     private string GetFieldValue(Dictionary<string, object> data, string key, string defaultValue = "N/A")
     {
         if (data != null && data.ContainsKey(key) && data[key] != null)
-        {
             return data[key].ToString();
-        }
         return defaultValue;
     }
 
     private object GetFieldValue(Dictionary<string, object> data, string key)
     {
         if (data != null && data.ContainsKey(key))
-        {
             return data[key];
-        }
         return null;
     }
 
@@ -545,9 +555,7 @@ public class StatisticsManager : MonoBehaviour
             {
                 var enrolledClassesObj = userData["enrolledClasses"];
                 if (enrolledClassesObj is List<object> objectList)
-                {
                     return objectList.Select(obj => obj.ToString()).ToList();
-                }
             }
             catch (Exception ex)
             {
@@ -564,9 +572,7 @@ public class StatisticsManager : MonoBehaviour
         try
         {
             if (ts is Timestamp timestamp)
-            {
                 return timestamp.ToDateTime().ToLocalTime().ToString("g");
-            }
             return "Invalid Timestamp";
         }
         catch (Exception ex)
@@ -648,7 +654,6 @@ public class StatisticsManager : MonoBehaviour
             {
                 if (enableDebugLogging)
                     Debug.LogWarning("Failed to load profile image: " + uwr.error + ". Using default image.");
-                // Keep the default image on failure
                 SetDefaultProfileImage();
             }
             else

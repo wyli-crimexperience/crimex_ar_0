@@ -5,21 +5,22 @@ public class SpriteRotator : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 90f; // Degrees per second
     [SerializeField] private bool rotateClockwise = true;
-    [SerializeField] private bool rotateOnStart = true;
 
     [Header("Optional Settings")]
     [SerializeField] private bool useUnscaledTime = false; // Ignore time scale
-    [SerializeField] private float maxRotationAngle = 360f; // 0 = unlimited
+    [SerializeField] private float maxRotationAngle = 0f; // 0 = unlimited
 
     private bool isRotating = false;
     private float currentRotation = 0f;
 
-    void Start()
+    private void OnEnable()
     {
-        if (rotateOnStart)
-        {
-            StartRotation();
-        }
+        StartRotation();
+    }
+
+    private void OnDisable()
+    {
+        StopRotation();
     }
 
     void Update()
@@ -60,28 +61,6 @@ public class SpriteRotator : MonoBehaviour
     public void StopRotation()
     {
         isRotating = false;
-    }
-
-    public void ToggleRotation()
-    {
-        if (isRotating)
-        {
-            StopRotation();
-        }
-        else
-        {
-            StartRotation();
-        }
-    }
-
-    public void SetRotationSpeed(float newSpeed)
-    {
-        rotationSpeed = newSpeed;
-    }
-
-    public void SetDirection(bool clockwise)
-    {
-        rotateClockwise = clockwise;
     }
 
     // Reset rotation to zero
